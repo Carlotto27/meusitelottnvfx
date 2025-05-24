@@ -19,29 +19,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (container && after && slider) {
-      // Mouse
+      // PC - Mousemove livre
       container.addEventListener('mousemove', (e) => {
-        if (e.buttons !== 1) return; // só quando está clicando
         atualizarSlider(e.clientX);
       });
 
-      // Touch
-      container.addEventListener('touchmove', (e) => {
-        if (e.touches.length > 0) {
-          atualizarSlider(e.touches[0].clientX);
-        }
-      });
-
-      // Inicial (posição padrão ao tocar/clicar)
-      container.addEventListener('mousedown', (e) => {
-        atualizarSlider(e.clientX);
-      });
-
+      // Touch - bloqueia rolagem vertical ao arrastar
       container.addEventListener('touchstart', (e) => {
         if (e.touches.length > 0) {
           atualizarSlider(e.touches[0].clientX);
         }
       });
+
+      container.addEventListener('touchmove', (e) => {
+        if (e.touches.length > 0) {
+          atualizarSlider(e.touches[0].clientX);
+          e.preventDefault(); // BLOQUEIA rolagem vertical ao arrastar horizontal
+        }
+      }, { passive: false }); // Isso é necessário para o preventDefault funcionar
     }
   }
 
