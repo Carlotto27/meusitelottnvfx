@@ -172,14 +172,15 @@ footer {
 }
 
 .antes-depois-container {
-  width: 600px;  /* largura fixa */
-  height: 405px; /* altura fixa para ficar quadrado */
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  aspect-ratio: 4 / 3; /* mantém proporção ao invés de altura fixa */
   position: relative;
   margin: 5px auto;
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0,0,0,0.4);
-  left: 0; /* Remover left negativo para centralizar */
 }
 
 .antes-depois-container img {
@@ -257,3 +258,38 @@ footer {
   box-shadow: 0 0 10px #F5F5F5;
   transition: none;
 }
+
+@media (max-width: 768px) {
+  header, .apresentacao, .sliders-duplos {
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+
+  .texto-slider.texto-explicativo {
+    font-size: 0.95em;
+    padding: 0 10px;
+  }
+
+  .botao {
+    padding: 15px 30px;
+    font-size: 0.95em;
+  }
+
+  .bloco-slider {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .hero-logo {
+    max-width: 90%;
+  }
+}
+
