@@ -4,19 +4,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const after = document.getElementById(afterId);
     const slider = document.getElementById(sliderId);
 
+    function atualizarSlider(x) {
+      const rect = container.getBoundingClientRect();
+      let posX = x - rect.left;
+
+      // Limitar para não sair do container
+      if (posX < 0) posX = 0;
+      if (posX > rect.width) posX = rect.width;
+
+      const percent = (posX / rect.width) * 100;
+
+      after.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+      slider.style.left = `${percent}%`;
+    }
+
     if (container && after && slider) {
+      // Mouse
       container.addEventListener('mousemove', (e) => {
-        const rect = container.getBoundingClientRect();
-        let mouseX = e.clientX - rect.left;
+        if (e.buttons !== 1) return; // só quando está clicando
+        atualizarSlider(e.clientX);
+      });
 
-        // Limitar mouseX para não sair do container
-        if (mouseX < 0) mouseX = 0;
-        if (mouseX > rect.width) mouseX = rect.width;
+      // Touch
+      container.addEventListener('touchmove', (e) => {
+        if (e.touches.length > 0) {
+          atualizarSlider(e.touches[0].clientX);
+        }
+      });
 
-        const percent = (mouseX / rect.width) * 100;
+      // Inicial (posição padrão ao tocar/clicar)
+      container.addEventListener('mousedown', (e) => {
+        atualizarSlider(e.clientX);
+      });
 
-        after.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
-        slider.style.left = `${percent}%`;
+      container.addEventListener('touchstart', (e) => {
+        if (e.touches.length > 0) {
+          atualizarSlider(e.touches[0].clientX);
+        }
       });
     }
   }
@@ -24,4 +48,3 @@ document.addEventListener('DOMContentLoaded', () => {
   criarSlider('slider-container', 'after-img', 'slider');
   criarSlider('slider-container-3', 'after-img-3', 'slider-3');
 });
-
