@@ -1,0 +1,259 @@
+/* css/estilo.css */
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: url('../imagens/fundo.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #F5F5F5;
+}
+
+.container {
+  max-width: calc(100% - 500px); /* 100% da tela menos 100px de cada lado */
+  margin: 0 auto;
+  padding: 0 100px;
+  box-sizing: border-box;
+  background: #0A0908; /* para deixar o fundo do body aparecer */
+}
+
+header {
+  background-color: #0A0908;
+  border-bottom: 3px solid #B000FB;
+  padding: 15px 0;
+  position: relative; /* ← isso faz ele rolar junto com a página */
+  width: 65%;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+header nav {
+  max-width: 1200px;
+  margin: 0 auto;      /* centraliza o nav */
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  /* logo e menu separados */
+}
+
+header nav ul li a {
+  color: #F5F5F5;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.topo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0; /* mantido o padding maior */
+  background-color: #0A0908; /* mesmo fundo do header */
+  border-bottom: 3px solid #13051A;
+}
+
+.logo {
+  height: 50px;
+}
+
+nav {
+  max-width: 1200px;
+  margin: 0 auto 15px auto; /* centraliza e dá margem inferior */
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li a:hover {
+  color: #B000FB;
+}
+
+.hero-logo {
+  max-width: 400px;
+  height: auto;           /* ajusta altura proporcional */
+  margin: 20px auto 20px auto; /* margem superior e inferior 20px e centraliza horizontalmente */
+  display: block;         /* necessário para que margin auto funcione */
+}
+
+
+.hero h1 {
+  font-size: 4em;
+  margin-bottom: 10px;
+}
+
+.galeria {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.galeria h2 {
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  background-color: #0A0A09;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.apresentacao {
+  max-width: 900px;
+  margin: 40px auto;
+  text-align: center;
+  font-size: 1.1em;
+  line-height: 1.5em;
+  padding: 0 20px;
+  font-weight: 500; /* medium */
+}
+
+.apresentacao strong {
+  font-weight: 550; /* medium */
+  color: #fff; /* mantém o destaque */
+}
+
+.apresentacao h3 {
+  margin-top: 40px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.botoes-projetos {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.botao {
+  background-color: white;
+  color: #0A0908;
+  border: none;
+  padding: 20px 43px;
+  font-size: 1em;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.botao:hover {
+  background-color: #440095;
+  color: white;
+}
+
+.antes-depois-container {
+  width: 600px;  /* largura fixa */
+  height: 405px; /* altura fixa para ficar quadrado */
+  position: relative;
+  margin: 5px auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  left: 0; /* Remover left negativo para centralizar */
+}
+
+.antes-depois-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.antes-img {
+  z-index: 1;
+}
+
+.depois-img {
+  clip-path: inset(0 50% 0 0);
+  z-index: 2;
+}
+
+.sliders-duplos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;  /* centraliza os blocos juntos */
+  gap: 50px;                 /* reduz o espaçamento entre eles */
+  margin-top: 60px;
+}
+
+.bloco-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+}
+
+.texto-slider {
+  text-align: center;
+  margin: 20px 0 10px;
+}
+
+.texto-slider.titulo {
+  font-weight: 700; /* negrito */
+  font-size: 1.6em;
+}
+
+.texto-slider.texto-explicativo {
+  font-weight: 400; /* normal */
+  font-size: 1em;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+  color: #ddd; /* um cinza claro para dar contraste suave */
+}
+
+.slider-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: #F5F5F5;
+  z-index: 5;
+  cursor: ew-resize;
+  transition: none; /* desliga a transição para não atrasar o movimento */
+}
+
+.slider-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: #F5F5F5;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  box-shadow: 0 0 10px #F5F5F5;
+  transition: none;
+}
