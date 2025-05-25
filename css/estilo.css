@@ -1,65 +1,57 @@
-/* css/estilo.css */
+/* === Variáveis Globais === */
+:root {
+  --cor-fundo: #0A0908;
+  --cor-header: #0A0908;
+  --cor-texto: #F5F5F5;
+  --cor-hover: #590369;
+  --cor-botao-hover: #440095;
+  --cor-footer: #0A0A09;
+  --espacamento-padrao: 20px;
+}
 
+/* === Reset e Base === */
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   background: url('../imagens/fundo.png') no-repeat center center fixed;
   background-size: cover;
-  color: #F5F5F5;
+  color: var(--cor-texto);
 }
 
 .container {
-  max-width: calc(100% - 500px); /* 100% da tela menos 100px de cada lado */
+  max-width: calc(100% - 500px);
   margin: 0 auto;
   padding: 0 100px;
   box-sizing: border-box;
-  background: #0A0908; /* para deixar o fundo do body aparecer */
+  background: var(--cor-fundo);
 }
 
+/* === Header === */
 header {
-  background-color: #0A0908;
-  border-bottom: 3px solid #B000FB;
+  background-color: var(--cor-header);
+  border-bottom: 3px solid #27002e;
   padding: 15px 0;
-  position: relative; /* ← isso faz ele rolar junto com a página */
-  width: 65%;
-  margin: 0 auto;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+  position: relative;
+  width: 100%;
 }
 
-header nav {
+.header-content {
   max-width: 1200px;
-  margin: 0 auto;      /* centraliza o nav */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;  /* logo e menu separados */
-}
-
-header nav ul li a {
-  color: #F5F5F5;
-  text-decoration: none;
-  font-size: 16px;
-  transition: color 0.3s;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.topo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 0; /* mantido o padding maior */
-  background-color: #0A0908; /* mesmo fundo do header */
-  border-bottom: 3px solid #13051A;
 }
 
 .logo {
   height: 50px;
+  margin-left: -30px;
 }
 
 nav {
   max-width: 1200px;
-  margin: 0 auto 15px auto; /* centraliza e dá margem inferior */
+  margin: 20px auto 10px auto;
   padding: 0 20px;
   display: flex;
   justify-content: center;
@@ -74,23 +66,41 @@ nav ul {
   margin: 0;
 }
 
+nav ul li a {
+  color: var(--cor-texto);
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+  font-weight: 400;
+}
+
 nav ul li a:hover {
-  color: #B000FB;
+  color: var(--cor-hover);
+}
+
+/* === Hero === */
+.topo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--espacamento-padrao) 0;
+  background-color: var(--cor-fundo);
+  border-bottom: 3px solid #13051A;
 }
 
 .hero-logo {
   max-width: 400px;
-  height: auto;           /* ajusta altura proporcional */
-  margin: 20px auto 20px auto; /* margem superior e inferior 20px e centraliza horizontalmente */
-  display: block;         /* necessário para que margin auto funcione */
+  margin: 20px auto;
+  display: block;
+  transition: opacity 0.1s ease;
 }
-
 
 .hero h1 {
   font-size: 4em;
   margin-bottom: 10px;
 }
 
+/* === Galeria === */
 .galeria {
   padding: 50px 20px;
   text-align: center;
@@ -116,14 +126,7 @@ nav ul li a:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-footer {
-  background-color: #0A0A09;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 50px;
-}
-
+/* === Apresentação === */
 .apresentacao {
   max-width: 900px;
   margin: 40px auto;
@@ -131,12 +134,12 @@ footer {
   font-size: 1.1em;
   line-height: 1.5em;
   padding: 0 20px;
-  font-weight: 500; /* medium */
+  font-weight: 500;
 }
 
 .apresentacao strong {
-  font-weight: 550; /* medium */
-  color: #fff; /* mantém o destaque */
+  font-weight: 550;
+  color: #fff;
 }
 
 .apresentacao h3 {
@@ -145,6 +148,7 @@ footer {
   font-weight: bold;
 }
 
+/* === Botões === */
 .botoes-projetos {
   margin-top: 20px;
   display: flex;
@@ -155,7 +159,7 @@ footer {
 
 .botao {
   background-color: white;
-  color: #0A0908;
+  color: var(--cor-fundo);
   border: none;
   padding: 20px 43px;
   font-size: 1em;
@@ -167,15 +171,15 @@ footer {
 }
 
 .botao:hover {
-  background-color: #440095;
+  background-color: var(--cor-botao-hover);
   color: white;
 }
 
+/* === Slider Antes e Depois === */
 .antes-depois-container {
   width: 100%;
   max-width: 600px;
-  height: auto;
-  aspect-ratio: 4 / 3; /* mantém proporção ao invés de altura fixa */
+  aspect-ratio: 4 / 3;
   position: relative;
   margin: 5px auto;
   overflow: hidden;
@@ -201,11 +205,35 @@ footer {
   z-index: 2;
 }
 
+.slider-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--cor-texto);
+  z-index: 5;
+  cursor: ew-resize;
+}
+
+.slider-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: var(--cor-texto);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--cor-texto);
+}
+
+/* === Sliders Múltiplos === */
 .sliders-duplos {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;  /* centraliza os blocos juntos */
-  gap: 50px;                 /* reduz o espaçamento entre eles */
+  justify-content: center;
+  gap: 50px;
   margin-top: 60px;
 }
 
@@ -222,48 +250,41 @@ footer {
 }
 
 .texto-slider.titulo {
-  font-weight: 700; /* negrito */
+  font-weight: 700;
   font-size: 1.6em;
 }
 
 .texto-slider.texto-explicativo {
-  font-weight: 400; /* normal */
+  font-weight: 400;
   font-size: 1em;
   max-width: 600px;
   margin: 0 auto 20px auto;
-  color: #ddd; /* um cinza claro para dar contraste suave */
+  color: #ddd;
 }
 
-.slider-bar {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background-color: #F5F5F5;
-  z-index: 5;
-  cursor: ew-resize;
-  transition: none; /* desliga a transição para não atrasar o movimento */
+/* === Footer === */
+footer {
+  background-color: var(--cor-footer);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
 }
 
-.slider-handle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  background-color: #F5F5F5;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  box-shadow: 0 0 10px #F5F5F5;
-  transition: none;
-}
-
+/* === Responsivo === */
 @media (max-width: 768px) {
   header, .apresentacao, .sliders-duplos {
     width: 100%;
     padding: 0 15px;
     box-sizing: border-box;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 2.2em;
   }
 
   .texto-slider.texto-explicativo {
@@ -292,4 +313,3 @@ footer {
     max-width: 90%;
   }
 }
-
