@@ -43,3 +43,30 @@ document.addEventListener('DOMContentLoaded', () => {
   criarSlider('slider-container', 'after-img', 'slider');
   criarSlider('slider-container-3', 'after-img-3', 'slider-3');
 });
+
+ // Troca a logo hero no scroll com fade
+  const heroLogo = document.querySelector('.hero-logo');
+  const logoNormal = 'imagens/Sticker01.png';
+  const logoReflexo = 'imagens/Sticker02.png';
+  const scrollTrigger = 50;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > scrollTrigger) {
+      if (!heroLogo.src.includes('Sticker02.png')) {
+        heroLogo.style.opacity = 0;
+        setTimeout(() => {
+          heroLogo.src = logoReflexo;
+          heroLogo.style.opacity = 1;
+        }, 400);
+      }
+    } else {
+      if (!heroLogo.src.includes('Sticker01.png')) {
+        heroLogo.style.opacity = 0;
+        setTimeout(() => {
+          heroLogo.src = logoNormal;
+          heroLogo.style.opacity = 1;
+        }, 400);
+      }
+    }
+  });
+});
