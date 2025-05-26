@@ -279,7 +279,7 @@ footer {
 
   /* Ajuste container geral para espaçamento lateral */
   .container {
-    padding: 20 0px;
+    padding: 1 0px;
     max-width: 100%;
   }
 * {
@@ -287,7 +287,7 @@ footer {
   nav ul {
   flex-direction: row; /* deixa lado a lado */
   justify-content: center;
-  gap: -2px; /* pode ajustar como quiser */
+  gap: 5px; /* pode ajustar como quiser */
   align-items: center;
   padding: 0;
   }
@@ -301,7 +301,7 @@ footer {
 
   nav ul li a {
     font-size: 16px;
-    padding: 2px 10px;
+    padding: 10px 10px;
     justify-content: center;
   }
 
@@ -316,7 +316,7 @@ footer {
 
   .apresentacao {
     font-size: 0.9em;
-    padding: 0 50px;
+    padding: 0 20px;
   }
 
   .apresentacao h3 {
@@ -361,21 +361,21 @@ footer {
 
 
   header {
-    padding: 15px 10px; /* diminui para metade do que tinha */
+    padding: 5px 10px; /* diminui para metade do que tinha */
     text-align: center;
   }
 
   header nav {
     justify-content: center;
     align-items: center;
-    gap: 0px;
+    gap: 20px;
     padding: 0;
-    margin-top: 10px;
+    margin-top: 0px;
   }
 
   .logo {
     margin: 0 auto;
-    max-height: 60px;
+    max-height: 50px;
   }
 
   nav {
@@ -383,6 +383,6 @@ footer {
     transform: none;
     width: auto;
     justify-content: center;
-    margin-top: -100px;
+    margin-top: 10px;
   }
 }
