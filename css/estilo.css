@@ -1,106 +1,122 @@
-/* === Variáveis Globais === */
-:root {
-  --cor-fundo: #0A0908;
-  --cor-header: #0A0908;
-  --cor-texto: #F5F5F5;
-  --cor-hover: #590369;
-  --cor-botao-hover: #440095;
-  --cor-footer: #0A0A09;
-  --espacamento-padrao: 20px;
-}
+/* css/estilo.css */
 
-/* === Reset e Base === */
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Satoshi-Variable', sans-serif;
   background: url('../imagens/fundo.png') no-repeat center center fixed;
   background-size: cover;
-  color: var(--cor-texto);
+  color: #F5F5F5;
 }
 
 .container {
-  max-width: calc(100% - 500px);
+  max-width: calc(100% - 500px); /* 100% da tela menos 100px de cada lado */
   margin: 0 auto;
   padding: 0 100px;
   box-sizing: border-box;
-  background: var(--cor-fundo);
+  background: #0A0908; /* para deixar o fundo do body aparecer */
 }
 
-/* === Header === */
-header {
-  background-color: var(--cor-header);
-  border-bottom: 3px solid #27002e;
-  padding: 15px 0;
-  position: relative;
-  width: 100%;
+.logo-link {
+  display: inline-block;
 }
 
-.header-content {
-  max-width: 1200px;
-  margin: 0 auto;
+
+/* Logo fixada a 50px da borda esquerda da tela */
+.logo {
+  height: 50px;
+  margin-left: -300px;  /* exatamente 50px da borda esquerda */
+  flex-shrink: 0;     /* não encolhe */
+}
+
+
+
+header nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 200px;  /* controla espaço nas bordas */
+  margin: 0 auto;
 }
 
-.logo {
-  height: 50px;
-  margin-left: -30px;
+header {
+  background-color: #101010;
+  border-bottom: 3px solid #B000FB;
+  padding: 15px 0;
+  width: 100%;
 }
 
-nav {
-  max-width: 1200px;
-  margin: 20px auto 10px auto;
-  padding: 0 20px;
-  display: flex;
-  justify-content: center;
-  background-color: transparent;
-}
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-  padding: 0;
-  margin: 0;
-}
-
-nav ul li a {
-  color: var(--cor-texto);
+header nav ul li a {
+  color: #F5F5F5;
   text-decoration: none;
   font-size: 16px;
   transition: color 0.3s;
+  font-family: 'Satoshi-Variable', sans-serif;
+  font-weight: 300
+}
+
+.topo {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 0;  /* removemos o padding para controlar espaçamento pela logo */
+  display: flex;
+  align-items: center;
+  /* Não use justify-content: space-between para facilitar */
+}
+
+
+
+/* Navegação centralizada na tela */
+nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-70%);
+  /* Garantir que o nav não ultrapasse o topo */
+  max-width: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+}
+
+/* Ajustar o ul para alinhar itens horizontalmente */
+nav ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: #F5F5F5;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: 'Satoshi-Variable', sans-serif;
   font-weight: 400;
+  transition: color 0.3s;
 }
 
 nav ul li a:hover {
-  color: var(--cor-hover);
-}
-
-/* === Hero === */
-.topo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: var(--espacamento-padrao) 0;
-  background-color: var(--cor-fundo);
-  border-bottom: 3px solid #13051A;
+  color: #B000FB;
 }
 
 .hero-logo {
-  max-width: 400px;
-  margin: 20px auto;
-  display: block;
-  transition: opacity 0.1s ease;
+  max-width: 500px;
+  height: auto;           /* ajusta altura proporcional */
+  margin: 20px auto 20px auto; /* margem superior e inferior 20px e centraliza horizontalmente */
+  display: block;         /* necessário para que margin auto funcione */
 }
+
 
 .hero h1 {
   font-size: 4em;
   margin-bottom: 10px;
 }
 
-/* === Galeria === */
 .galeria {
   padding: 50px 20px;
   text-align: center;
@@ -126,29 +142,36 @@ nav ul li a:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* === Apresentação === */
+footer {
+  background-color: #0A0A09;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+  font-weight: 300
+}
+
 .apresentacao {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 40px auto;
   text-align: center;
-  font-size: 1.1em;
+  font-size: 1.2em;
   line-height: 1.5em;
   padding: 0 20px;
-  font-weight: 500;
+  font-weight: 500; /* medium */
 }
 
 .apresentacao strong {
-  font-weight: 550;
-  color: #fff;
+  font-weight: 700; /* medium */
+  color: #fff; /* mantém o destaque */
 }
 
 .apresentacao h3 {
   margin-top: 40px;
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-weight: bold;
 }
 
-/* === Botões === */
 .botoes-projetos {
   margin-top: 20px;
   display: flex;
@@ -159,7 +182,7 @@ nav ul li a:hover {
 
 .botao {
   background-color: white;
-  color: var(--cor-fundo);
+  color: #0A0908;
   border: none;
   padding: 20px 43px;
   font-size: 1em;
@@ -171,20 +194,19 @@ nav ul li a:hover {
 }
 
 .botao:hover {
-  background-color: var(--cor-botao-hover);
+  background-color: #440095;
   color: white;
 }
 
-/* === Slider Antes e Depois === */
 .antes-depois-container {
-  width: 100%;
-  max-width: 600px;
-  aspect-ratio: 4 / 3;
+  width: 600px;  /* largura fixa */
+  height: 405px; /* altura fixa para ficar quadrado */
   position: relative;
   margin: 5px auto;
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  left: 0; /* Remover left negativo para centralizar */
 }
 
 .antes-depois-container img {
@@ -205,36 +227,12 @@ nav ul li a:hover {
   z-index: 2;
 }
 
-.slider-bar {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background-color: var(--cor-texto);
-  z-index: 5;
-  cursor: ew-resize;
-}
-
-.slider-handle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  background-color: var(--cor-texto);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  box-shadow: 0 0 10px var(--cor-texto);
-}
-
-/* === Sliders Múltiplos === */
 .sliders-duplos {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 50px;
-  margin-top: 60px;
+  justify-content: center;  /* centraliza os blocos juntos */
+  gap: 50px;                 /* reduz o espaçamento entre eles */
+  margin-top: 0px;
 }
 
 .bloco-slider {
@@ -250,66 +248,39 @@ nav ul li a:hover {
 }
 
 .texto-slider.titulo {
-  font-weight: 700;
+  font-weight: 700; /* negrito */
   font-size: 1.6em;
 }
 
 .texto-slider.texto-explicativo {
-  font-weight: 400;
+  font-weight: 400; /* normal */
   font-size: 1em;
   max-width: 600px;
   margin: 0 auto 20px auto;
-  color: #ddd;
+  color: #ddd; /* um cinza claro para dar contraste suave */
 }
 
-/* === Footer === */
-footer {
-  background-color: var(--cor-footer);
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 50px;
+.slider-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: #F5F5F5;
+  z-index: 5;
+  cursor: ew-resize;
+  transition: none; /* desliga a transição para não atrasar o movimento */
 }
 
-/* === Responsivo === */
-@media (max-width: 768px) {
-  header, .apresentacao, .sliders-duplos {
-    width: 100%;
-    padding: 0 15px;
-    box-sizing: border-box;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero h1 {
-    font-size: 2.2em;
-  }
-
-  .texto-slider.texto-explicativo {
-    font-size: 0.95em;
-    padding: 0 10px;
-  }
-
-  .botao {
-    padding: 15px 30px;
-    font-size: 0.95em;
-  }
-
-  .bloco-slider {
-    width: 100%;
-    max-width: 100%;
-    padding: 0 10px;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-  }
-
-  .hero-logo {
-    max-width: 90%;
-  }
+.slider-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: #F5F5F5;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  box-shadow: 0 0 10px #F5F5F5;
+  transition: none;
 }
