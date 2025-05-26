@@ -1,5 +1,6 @@
 /* css/estilo.css */
 
+/* ===== Reset e base ===== */
 body {
   margin: 0;
   font-family: 'Satoshi-Variable', sans-serif;
@@ -8,89 +9,65 @@ body {
   color: #F5F5F5;
 }
 
-.container {
-  max-width: calc(100% - 500px); /* 100% da tela menos 100px de cada lado */
-  margin: 0 auto;
-  padding: 0 100px;
-  box-sizing: border-box;
-  background: #0A0908; /* para deixar o fundo do body aparecer */
+/* ===== HEADER ===== */
+header {
+  background-color: #101010;
+  border-bottom: 3px solid #B000FB;
+  padding: 80px 0;
+  width: 100%;
+
 }
 
-.logo-link {
+/* Container topo: logo + navegação lado a lado */
+.topo {
+  position: absolute;   /* tira do fluxo normal para posicionar */
+  top: 10%;            /* coloca no meio da altura do header */
+  left: 47%;           /* coloca no meio da largura do header */
+  transform: translate(-50%, -50%); /* ajusta pra centralizar exatamente */
+  max-width: 1200px;
+  margin: 0 50px;
+  padding: 20px;       /* corrigi seu padding pra unidade correta */
+  display: flex;
+  flex-direction: column; /* pra deixar logo em cima e nav embaixo */
+  align-items: center;  /* centraliza horizontalmente */
+  justify-content: center;
+  gap: 20px;            /* espaço entre logo e menu */
+}
+
+
+/* Logo */
+.logo {
+  max-height: 80px;
+  flex-shrink: 0;
+  display: block;
+  margin-top: -20px; /* ou -10px para subir */
+}
+
+/* Link da logo */
+.topo > a {
   display: inline-block;
 }
 
 
-/* Logo fixada a 50px da borda esquerda da tela */
-.logo {
-  height: 50px;
-  margin-left: -300px;  /* exatamente 50px da borda esquerda */
-  flex-shrink: 0;     /* não encolhe */
-}
 
 
-
-header nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 200px;  /* controla espaço nas bordas */
-  margin: 0 auto;
-}
-
-header {
-  background-color: #101010;
-  border-bottom: 3px solid #B000FB;
-  padding: 15px 0;
-  width: 100%;
-}
-
-
-header nav ul li a {
-  color: #F5F5F5;
-  text-decoration: none;
-  font-size: 16px;
-  transition: color 0.3s;
-  font-family: 'Satoshi-Variable', sans-serif;
-  font-weight: 300
-}
-
-.topo {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 0;  /* removemos o padding para controlar espaçamento pela logo */
-  display: flex;
-  align-items: center;
-  /* Não use justify-content: space-between para facilitar */
-}
-
-
-
-/* Navegação centralizada na tela */
+/* Navegação */
 nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-70%);
-  /* Garantir que o nav não ultrapasse o topo */
-  max-width: 100px;
-  width: 100%;
   display: flex;
   justify-content: center;
-  padding: 0;
-  margin: 0;
-  background-color: transparent;
+  align-items: center;
 }
 
-/* Ajustar o ul para alinhar itens horizontalmente */
+/* Lista de navegação */
 nav ul {
   display: flex;
-  gap: 30px;
+  gap: 50px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
+/* Links do menu */
 nav ul li a {
   color: #F5F5F5;
   text-decoration: none;
@@ -104,19 +81,20 @@ nav ul li a:hover {
   color: #B000FB;
 }
 
+/* ===== HERO ===== */
 .hero-logo {
   max-width: 500px;
-  height: auto;           /* ajusta altura proporcional */
-  margin: 20px auto 20px auto; /* margem superior e inferior 20px e centraliza horizontalmente */
-  display: block;         /* necessário para que margin auto funcione */
+  height: auto;
+  margin: 20px auto;
+  display: block;
 }
-
 
 .hero h1 {
   font-size: 4em;
   margin-bottom: 10px;
 }
 
+/* ===== GALERIA ===== */
 .galeria {
   padding: 50px 20px;
   text-align: center;
@@ -142,15 +120,17 @@ nav ul li a:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* ===== FOOTER ===== */
 footer {
   background-color: #0A0A09;
   color: white;
   text-align: center;
   padding: 20px;
   margin-top: 50px;
-  font-weight: 300
+  font-weight: 300;
 }
 
+/* ===== APRESENTAÇÃO ===== */
 .apresentacao {
   max-width: 1200px;
   margin: 40px auto;
@@ -158,12 +138,12 @@ footer {
   font-size: 1.2em;
   line-height: 1.5em;
   padding: 0 20px;
-  font-weight: 500; /* medium */
+  font-weight: 500;
 }
 
 .apresentacao strong {
-  font-weight: 700; /* medium */
-  color: #fff; /* mantém o destaque */
+  font-weight: 700;
+  color: #fff;
 }
 
 .apresentacao h3 {
@@ -172,6 +152,7 @@ footer {
   font-weight: bold;
 }
 
+/* ===== BOTÕES ===== */
 .botoes-projetos {
   margin-top: 20px;
   display: flex;
@@ -198,15 +179,15 @@ footer {
   color: white;
 }
 
+/* ===== SLIDERS ===== */
 .antes-depois-container {
-  width: 600px;  /* largura fixa */
-  height: 405px; /* altura fixa para ficar quadrado */
+  width: 600px;
+  height: 405px;
   position: relative;
   margin: 5px auto;
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0,0,0,0.4);
-  left: 0; /* Remover left negativo para centralizar */
 }
 
 .antes-depois-container img {
@@ -230,9 +211,9 @@ footer {
 .sliders-duplos {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;  /* centraliza os blocos juntos */
-  gap: 50px;                 /* reduz o espaçamento entre eles */
-  margin-top: 0px;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 0;
 }
 
 .bloco-slider {
@@ -248,16 +229,16 @@ footer {
 }
 
 .texto-slider.titulo {
-  font-weight: 700; /* negrito */
+  font-weight: 700;
   font-size: 1.6em;
 }
 
 .texto-slider.texto-explicativo {
-  font-weight: 400; /* normal */
+  font-weight: 400;
   font-size: 1em;
   max-width: 600px;
-  margin: 0 auto 20px auto;
-  color: #ddd; /* um cinza claro para dar contraste suave */
+  margin: 0 auto 20px;
+  color: #ddd;
 }
 
 .slider-bar {
@@ -268,7 +249,7 @@ footer {
   background-color: #F5F5F5;
   z-index: 5;
   cursor: ew-resize;
-  transition: none; /* desliga a transição para não atrasar o movimento */
+  transition: none;
 }
 
 .slider-handle {
@@ -283,4 +264,122 @@ footer {
   cursor: pointer;
   box-shadow: 0 0 10px #F5F5F5;
   transition: none;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+    background-size: cover;
+  }
+
+  /* Ajuste container geral para espaçamento lateral */
+  .container {
+    padding: 0 0px;
+    max-width: 100%;
+  }
+
+  nav ul {
+  flex-direction: row; /* deixa lado a lado */
+  justify-content: center;
+  gap: -2px; /* pode ajustar como quiser */
+  align-items: center;
+  padding: 0;
+  }
+
+  nav ul li {
+    padding: 2px 0;
+    justify-content: center;
+
+  }
+  .topo {
+  left: 40%;
+  gap: 5px; /* ou 0px, ou o valor que quiser para reduzir o espaço entre a logo e o menu */
+  }
+
+  nav ul li a {
+    font-size: 16px;
+    padding: 2px 10px;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 2em;
+    text-align: center;
+  }
+
+  .hero-logo {
+    max-width: 70%;
+  }
+
+  .apresentacao {
+    font-size: 0.9em;
+    padding: 0 50px;
+  }
+
+  .apresentacao h3 {
+    font-size: 1.2em;
+  }
+
+  .botao {
+    width: 50%;
+    max-width: 200px;
+    padding: 10px;
+    font-size: 0.9em;
+  }
+
+  .antes-depois-container {
+    width: 90%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+  }
+
+  .sliders-duplos {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .bloco-slider {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .texto-slider.titulo {
+    font-size: 1.2em;
+  }
+
+  .texto-slider.texto-explicativo {
+    font-size: 0.9em;
+  }
+
+  footer {
+    font-size: 0.9em;
+    padding: 15px 10px;
+  }
+
+  header {
+    padding: 80px 10px;
+    text-align: center;
+  }
+
+  header nav {
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  .logo {
+    margin: 0 auto;
+    max-height: 60px;
+  }
+
+  nav {
+    position: static;
+    transform: none;
+    width: auto;
+    justify-content: center;
+    margin-top: -100px;
+  }
 }
