@@ -1,4 +1,7 @@
 /* css/estilo.css */
+/** {
+  outline: 1px solid red !important;
+}
 
 /* ===== Reset e base ===== */
 body {
@@ -8,32 +11,31 @@ body {
   background-size: cover;
   color: #F5F5F5;
   overflow-x: hidden;
-  max-width: 100vw;
+  width: 100%;
 }
 
 /* ===== HEADER ===== */
 header {
   background-color: #101010;
   border-bottom: 3px solid #B000FB;
-  padding: 80px 0;
+  padding: 0;
   width: 100%;
-
+  box-sizing: border-box;
+  overflow-x: hidden; /* Para garantir que não escapa */
 }
 
 /* Container topo: logo + navegação lado a lado */
 .topo {
-  position: absolute;   /* tira do fluxo normal para posicionar */
-  top: 10%;            /* coloca no meio da altura do header */
-  left: 47%;           /* coloca no meio da largura do header */
-  transform: translate(-50%, -50%); /* ajusta pra centralizar exatamente */
-  max-width: 1200px;
-  margin: 0 50px;
-  padding: 20px;       /* corrigi seu padding pra unidade correta */
+  position: relative; /* mudou de absolute */
+  margin: 0 auto;
+  padding: 20px 10px; /* reduz de 40 para 10 o espaçamento vertical */
   display: flex;
-  flex-direction: column; /* pra deixar logo em cima e nav embaixo */
-  align-items: center;  /* centraliza horizontalmente */
+  flex-direction: column; /* logo em cima, menu embaixo */
+  align-items: center;
   justify-content: center;
-  gap: 20px;            /* espaço entre logo e menu */
+  gap: 20px;
+  max-width: 100vw; /* para não exceder */
+  box-sizing: border-box;
 }
 
 
@@ -42,7 +44,7 @@ header {
   max-height: 80px;
   flex-shrink: 0;
   display: block;
-  margin-top: -20px; /* ou -10px para subir */
+  margin-top: 20; /* ou -5px para ajustar visual */
 }
 
 /* Link da logo */
@@ -51,14 +53,13 @@ header {
 }
 
 
-
-
 /* Navegação */
 nav {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 
 /* Lista de navegação */
 nav ul {
@@ -273,13 +274,15 @@ footer {
   body {
     background-attachment: scroll;
     background-size: cover;
+    width: 100%;
   }
 
   /* Ajuste container geral para espaçamento lateral */
   .container {
-    padding: 0 0px;
+    padding: 20 0px;
     max-width: 100%;
   }
+* {
 
   nav ul {
   flex-direction: row; /* deixa lado a lado */
@@ -294,10 +297,7 @@ footer {
     justify-content: center;
 
   }
-  .topo {
-  left: 40%;
-  gap: 5px; /* ou 0px, ou o valor que quiser para reduzir o espaço entre a logo e o menu */
-  }
+
 
   nav ul li a {
     font-size: 16px;
@@ -325,8 +325,8 @@ footer {
 
   .botao {
     width: 50%;
-    max-width: 200px;
-    padding: 10px;
+    max-width: 100px;
+    padding: 12px;
     font-size: 0.9em;
   }
 
@@ -359,8 +359,9 @@ footer {
     padding: 15px 10px;
   }
 
+
   header {
-    padding: 80px 10px;
+    padding: 15px 10px; /* diminui para metade do que tinha */
     text-align: center;
   }
 
