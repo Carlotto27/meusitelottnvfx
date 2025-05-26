@@ -7,6 +7,8 @@ body {
   background: url('../imagens/fundo.png') no-repeat center center fixed;
   background-size: cover;
   color: #F5F5F5;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 /* ===== HEADER ===== */
