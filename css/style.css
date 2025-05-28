@@ -176,7 +176,7 @@ section {
 }
 
 .logo-sticker {
-  max-width: 400px;
+  max-width: 600px;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -577,7 +577,7 @@ video:fullscreen {
 /* MEDIA QUERIES */
 @media (max-width: 768px) {
   .logo-sticker {
-    max-width: 200px;
+    max-width: 400px;
   }
 
   .intro-text {
