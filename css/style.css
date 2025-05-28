@@ -98,9 +98,23 @@ section {
   z-index: -1;
   object-fit: cover;
   width: 100%;
-  height: 100vh;
-  filter: brightness(0.8);
+  height: 120vh;
+  filter: brightness(0.1);
+  background-color: #10001b;
+
 }
+
+.banner::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #06000a;
+  z-index: -2;
+}
+
 
 .banner .content {
   display: flex;
@@ -392,7 +406,7 @@ video:fullscreen {
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 2rem;
   min-height: 30rem;
-  box-shadow: 5px 5px 20px #ff0000;
+  box-shadow: 5px 5px 20px #432554;
 }
 
 #competencias .cards .card ion-icon {
@@ -574,7 +588,7 @@ video:fullscreen {
   }
 }
 
-/* MEDIA QUERIES */
+/* MEDIA QUERIES CELULAR */
 @media (max-width: 768px) {
   .logo-sticker {
     max-width: 400px;
@@ -585,14 +599,16 @@ video:fullscreen {
   }
 }
 
-#projects .card {
-  min-height: 200px; /* ou 600px, dependendo do conteúdo */
+  #projects .card {
+    min-height: 200px; /* ou 600px, dependendo do conteúdo */
 }
-
+/* MEDIA QUERIES PC */
 @media (min-width: 1080px) {
   .wrapper {
     width: min(150rem, 100%);
   }
+
+
 
   header#home {
     background-image: none;
