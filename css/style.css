@@ -45,7 +45,7 @@ ul {
 .wrapper-home {
   width: min(130rem, 100%);
   margin-inline: auto;
-  padding-inline: 2.4rem;
+  padding-inline: 0.4rem;
 }
 
 section {
@@ -450,7 +450,7 @@ video:fullscreen {
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 2rem;
   min-height: 30rem;
-  box-shadow: 5px 5px 20px rgba(28, 12, 52, 0.7);
+  box-shadow: 5px 5px 20px rgba(139, 16, 225, 0.4);
 }
 
 #competencias .cards .card ion-icon {
@@ -635,7 +635,7 @@ video:fullscreen {
 /* MEDIA QUERIES CELULAR */
 @media (max-width: 768px) {
   .logo-sticker {
-    max-width: 400px;
+    max-width: 300px;
   }
 
   .intro-text {
@@ -784,7 +784,7 @@ video:fullscreen {
     backdrop-filter: blur(1.9px);
     -webkit-backdrop-filter: blur(1.9px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 6px 6px 30px #141414, -6px -6px 30px rgba(28, 12, 52, 0.4);
+    box-shadow: 6px 6px 30px #141414, -6px -6px 30px rgba(139, 16, 225, 0.4);
   }
 
   section#competenciasDesktop .cards .card ion-icon {
