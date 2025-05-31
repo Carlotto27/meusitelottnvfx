@@ -442,11 +442,10 @@ video:fullscreen {
 #competencias header p {
   font-family: "Poppins", sans-serif;
   font-size: 1.3rem;
-  color: var(--p-color);
-  font-weight: 200;
+  color: #a1a1a1;
+  font-weight: 400;
   margin-bottom: 1rem; /* controla o espaço entre o “arraste” e o card */
 }
-
 .card .text {
   margin-bottom: 100px; /* ajustável */
 }
