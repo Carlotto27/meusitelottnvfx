@@ -446,6 +446,7 @@ video:fullscreen {
   font-weight: 400;
   margin-bottom: 1rem; /* controla o espaço entre o “arraste” e o card */
 }
+
 .card .text {
   margin-bottom: 100px; /* ajustável */
 }
