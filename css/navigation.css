@@ -6,15 +6,15 @@ body.no-scroll {
   width: 60px;
   height: 60px;
   position: fixed;
-  top: 40px;
-  right: 40px;
+  top: 20px;
+  right: 20px;
   background-color: transparent;
   z-index: 100;
   cursor: pointer;
 }
 
 .hamburger:hover span {
-  box-shadow: 0 0 10px 3px #ffffffa1;
+  box-shadow: 0 0 10px 3px rgba(28, 12, 52, 0.4);
 }
 
 .hamburger span {
@@ -99,7 +99,7 @@ body.no-scroll {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4rem;
+  gap: 1rem;
 }
 
 .nav-content ul li {
@@ -141,6 +141,13 @@ body.no-scroll {
   position: relative;
 }
 
+.nav-content .social-links img,
+.nav-content .social-links svg,
+.nav-content .social-links i {
+  width: 6rem;
+  height: 6rem;
+}
+
 
 
 .nav-content .social-links svg {
@@ -168,22 +175,32 @@ body.no-scroll {
     top: 4%;
   }
 
+  .nav-content .social-links img,
+  .nav-content .social-links svg,
+  .nav-content .social-links i {
+    width: 10rem;
+    height: 10rem;
+  }
+
+
+
+
   .hamburger .bar {
     width: 55px;
     height: 2px;
   }
 
   .nav-content ul {
-    gap: 6rem;
+    gap: 1rem;
   }
 
   .nav-content ul li a {
     text-decoration: none;
-    font-size: 4rem;
+    font-size: 3rem;
     color: var(--color-text);
   }
 
   .nav-content .social-links {
-    margin-top: 8rem;
+    margin-top: 2rem;
   }
 }
