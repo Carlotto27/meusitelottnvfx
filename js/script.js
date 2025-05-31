@@ -27,5 +27,22 @@ function closeMenu() {
   hamburger.classList.remove("active");
   navContent.classList.remove("active");
   body.classList.remove("no-scroll");
+
+  const isDesktop = window.innerWidth > 768;
+  const targetId = isDesktop ? "competenciasDesktop" : "competencias";
+  const target = document.getElementById(targetId);
+
+  if (target) {
+    target.scrollIntoView({ behavior: "smooth" });
+  }
 }
+
+ScrollReveal().reveal('.social-links a', {
+  delay: 300,
+  duration: 1000,
+  origin: 'top',
+  distance: '50px',
+  easing: 'ease-in-out',
+  reset: false
+});
 
