@@ -138,9 +138,10 @@ body.no-scroll {
   align-items: center;
   gap: 3rem;
 
-  position: sticky;
-  top: 100px;
+  position: relative;
 }
+
+
 
 .nav-content .social-links svg {
   filter: drop-shadow(2px 4px 20px #20978d);
