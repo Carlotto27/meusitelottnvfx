@@ -100,7 +100,7 @@ section {
   width: 100%;
   height: 120vh;
   filter: brightness(0.1);
-  background-color: #10001b;
+  background-color: #4a3a8f;
 
 }
 
@@ -111,7 +111,7 @@ section {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #06000a;
+  background-color: #09000f;
   z-index: -2;
 }
 
@@ -146,14 +146,8 @@ section {
   top: 100px;
 }
 
-#home .social-links svg {
-  filter: drop-shadow(2px 4px 20px #20978d);
-  animation: move 2.5s infinite ease-in-out;
-  transition: all 200ms ease-in-out;
-}
 
 #home .social-links a svg:hover {
-  filter: drop-shadow(4px 8px 20px #ffffff);
   cursor: pointer;
 }
 
@@ -164,6 +158,50 @@ section {
 #home .social-links a:nth-child(3) svg {
   animation-delay: 400ms;
 }
+
+#home .social-links svg,
+#home .social-links img {
+  animation: floating 2.5s infinite ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+
+#home .social-links a img:hover,
+#home .social-links a svg:hover {
+  cursor: pointer;
+}
+/* Estilo global para qualquer .social-links */
+.social-links {
+  margin-top: 4rem;
+  gap: 344rem;
+}
+.social-links a {
+  margin: 0 1.5rem; /* margem horizontal de 1.5rem entre os botões */
+  display: inline-block;
+}
+
+.social-links a img {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease;
+}
+
+.social-links a:hover img {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+}
+.social-links a {
+  margin: 0 1.5rem; /* margem horizontal */
+  display: inline-block;
+  border-radius: 8px; /* bordas arredondadas pra ficar mais bonito */
+  transition: box-shadow 0.3s ease;
+}
+
+.social-links a:hover {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* sombra maior no hover */
+}
+
+
+
+
 
 #home .content .text svg {
   width: 5rem;
@@ -216,7 +254,7 @@ section {
 }
 
 #home .content .arrow {
-  filter: drop-shadow(2px 4px 15px #802097);
+  filter: drop-shadow (2px 4px 15px #FFFFFF);
   margin-top: -15rem;
   padding-bottom: 1rem;
   transition: all 200ms ease-in-out;
@@ -230,7 +268,7 @@ section {
 #projects {
   overflow: hidden;
   background: rgba(0, 0, 0, 0.519);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.082);
+  box-shadow: 0 8px 32px 0 #FFFFFF);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   position: relative;
@@ -298,7 +336,7 @@ section {
   #projects .cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+    gap: 10rem;
   }
 }
 
@@ -309,10 +347,10 @@ section {
   max-width: 100%;
   height: auto;
   max-height: 90vh;
-  border-radius: 8px;
+  border-radius: 15px;
   transition: all 200ms ease-in-out;
   animation: floating 3s ease-in-out infinite;
-  filter: drop-shadow(2px 4px 20px #1b1b1b);
+  filter: drop-shadow(2px 4px 20px rgba(28, 12, 52, 0.4));
   margin-bottom: 4rem;
   object-fit: contain; /* <-- Aqui está a correção */
   aspect-ratio: auto;
@@ -326,7 +364,7 @@ section {
 #projects .image video:hover,
 #projects .image img:hover {
   cursor: pointer;
-  filter: drop-shadow(1px 3px 15px #22002d);
+  filter: drop-shadow(1px 3px 15px rgba(28, 12, 52, 1));
   transform: scale(1.02);
 }
 
@@ -365,13 +403,13 @@ video:fullscreen {
 
 /* COMPETENCIAS */
 #competencias {
-  background-color: #050505;
   overflow: hidden;
 }
 
 #competencias {
   display: block;
 }
+
 
 #competencias img.textoHabilidades {
   width: 100%;
@@ -394,6 +432,12 @@ video:fullscreen {
   margin-bottom: 5rem;
 }
 
+.card .text {
+  margin-bottom: 100px; /* ajustável */
+}
+
+
+
 #competencias .cards .card {
   padding: 2rem;
   display: flex;
@@ -406,7 +450,7 @@ video:fullscreen {
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 2rem;
   min-height: 30rem;
-  box-shadow: 5px 5px 20px #432554;
+  box-shadow: 5px 5px 20px rgba(28, 12, 52, 0.7);
 }
 
 #competencias .cards .card ion-icon {
@@ -429,7 +473,7 @@ video:fullscreen {
   font-family: "Poppins", sans-serif;
   color: var(--p-color);
   font-size: 1.6rem;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 /* SOBRE */
@@ -449,7 +493,7 @@ video:fullscreen {
   object-fit: cover;
   border-radius: 50%;
   width: 100%;
-  box-shadow: 19px 19px 30px #1818182d, -19px -19px 30px #2020201f;
+  box-shadow: 19px 19px 30px #1818182d, -19px -19px 30px rgba(28, 12, 52, 0.5);
   animation: move 3s ease-in-out infinite;
 }
 
@@ -517,7 +561,7 @@ video:fullscreen {
 #sobre .content .text a button:hover {
   background-color: var(--color-text);
   color: #111111;
-  box-shadow: 5px 5px 10px #000;
+  box-shadow: 5px 5px 10px #FFFFFF;
   cursor: pointer;
 }
 
@@ -634,6 +678,13 @@ video:fullscreen {
     font-size: 5rem;
   }
 
+  .card .text {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
 
   #projects .card {
   display: flex;
@@ -654,14 +705,14 @@ video:fullscreen {
   border-radius: 8px;
   transition: all 200ms ease-in-out;
   animation: floating 3s ease-in-out infinite;
-  filter: drop-shadow(2px 4px 20px #1b1b1b);
+  filter: drop-shadow(2px 4px 20px rgba(28, 12, 52, 0.4));
   margin-bottom: 4rem;
   object-fit: cover;
   aspect-ratio: auto; /* ou remova */
 }
 
   section#sobre {
-    background-color: #000;
+    background-color: #050505;
   }
 
   section#sobre .wrapper {
@@ -681,10 +732,17 @@ video:fullscreen {
   section#sobre .content .text {
     text-align: left;
   }
+  social-icons {
+  display: flex;
+  align-items: center;
+  gap: 444px;
+}
+
 
   section#competencias {
   display: none;
   }
+
 
   section#competenciasDesktop {
   display: inherit;
@@ -726,7 +784,7 @@ video:fullscreen {
     backdrop-filter: blur(1.9px);
     -webkit-backdrop-filter: blur(1.9px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 6px 6px 30px #141414, -6px -6px 30px #0c0c0c;
+    box-shadow: 6px 6px 30px #141414, -6px -6px 30px rgba(28, 12, 52, 0.4);
   }
 
   section#competenciasDesktop .cards .card ion-icon {
@@ -743,7 +801,14 @@ video:fullscreen {
 
   section#competenciasDesktop .cards .card p {
     font-family: "Poppins", sans-serif;
-    color: #6e6e6e;
+    color: #aeaeae;
     font-size: 1.6rem;
   }
+    .competencias.mobile {
+    display: none;
+  }
+  .competencias.desktop {
+    display: block;
+  }
+}
 }
