@@ -57,7 +57,7 @@
       <div data-aos="fade-up-left" class="card2">
         <div class="image">
           <video class="floating lazy-video" controls preload="none" loop poster="./videos/FlashMount02.webp">
-            <source src="./videos/Flashmount02.mp4" type="video/mp4" />
+            <source data-src="./videos/Flashmount02.mp4" type="video/mp4" />
             Seu navegador não suporta vídeos HTML5.
           </video>
         </div>
@@ -76,7 +76,7 @@
       <div data-aos="fade-up-left" class="card2">
         <div class="image">
           <video class="floating lazy-video" controls preload="none" loop poster="./videos/LucasHalterbeck01.webp">
-            <source src="./videos/Lucashalterbeck01.mp4" type="video/mp4" />
+            <source data-src="./videos/Lucashalterbeck01.mp4" type="video/mp4" />
             Seu navegador não suporta vídeos HTML5.
           </video>
         </div>
@@ -92,7 +92,7 @@
       <div data-aos="fade-up-left" class="card2">
         <div class="image">
           <video class="floating lazy-video" controls preload="none" loop poster="./videos/LucasHalterbeck02.webp">
-            <source src="./videos/Lucashalterbeck02.mp4" type="video/mp4" />
+            <source data-src="./videos/Lucashalterbeck02.mp4" type="video/mp4" />
             Seu navegador não suporta vídeos HTML5.
           </video>
         </div>
@@ -108,7 +108,7 @@
       <div data-aos="fade-up-left" class="card2">
         <div class="image">
           <video class="floating lazy-video" controls preload="none" loop poster="./videos/LucasHalterbeck03.webp">
-            <source src="./videos/Lucashalterbeck03.mp4" type="video/mp4" />
+           <source data-src="./videos/Lucashalterbeck03.mp4" type="video/mp4" />
             Seu navegador não suporta vídeos HTML5.
           </video>
         </div>
@@ -123,7 +123,7 @@
       <div data-aos="fade-up-left" class="card2">
         <div class="image">
           <video class="floating lazy-video" controls preload="none" loop poster="./videos/LucasHalterbeck04.webp">
-            <source src="./videos/Lucashalterbeck04.mp4" type="video/mp4" />
+            <source data-src="./videos/Lucashalterbeck04.mp4" type="video/mp4" />
             Seu navegador não suporta vídeos HTML5.
           </video>
         </div>
@@ -179,7 +179,6 @@
   };
   document.body.appendChild(lenisScript);
 </script>
-
 <script>
   const lazyVideos = document.querySelectorAll("video.lazy-video");
 
@@ -201,6 +200,7 @@
 
   lazyVideos.forEach(video => videoObserver.observe(video));
 </script>
+
 
 
 </body>
