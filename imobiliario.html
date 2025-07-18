@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projetos</title>
+  <link rel="stylesheet" href="./css/projects.css" />
+</head>
+<body>
+  <button onclick="history.back()" class="voltar-seta">‹</button>
+
+
+<!-- Banner -->
+  <header class="banner">
+  <!-- Desktop -->
+  <img src="./imagens/fundo-Imobiliáriol.png" alt="Fundo Desktop" class="banner-bg desktop-bg" />
+  <!-- Mobile -->
+  <img src="./imagens/fundo-Imobiliáriol-mobile.png" alt="Fundo Mobile" class="banner-bg mobile-bg" />
+  <div class="overlay"></div>
+    <a href="index.html" class="logo-banner-link">
+    <img src="./imagens/logolottin01.png" alt="Lottin Films" class="logo-banner" />
+  </a>
+  <div class="banner-content">
+    <h2>Imobiliário</h2>
+    <p>Vídeos criados para valorizar imóveis com uma estética envolvente e foco em conversão. Cada detalhe pensado para atrair o comprador ideal e vender mais rápido!</p>
+  </div>
+</header>
+
+
+
+  <!-- Cards -->
+  <section class="projects-section">
+    <div class="cards2">
+      <!-- CARD 1 -->
+      <div data-aos="fade-up-left" class="card2">
+        <div class="image">
+          <video class="floating" controls loop poster="./videos/Casa01.png">
+            <source src="./videos/Casa01.mp4" type="video/mp4" />
+            Seu navegador não suporta vídeos HTML5.
+          </video>
+        </div>
+        <div class="text">
+          <h3>Casa Jardins Porto</h3>
+          <p><strong>Local:</strong> Goiânia – GO<br>
+          <strong>Objetivo:</strong> Apresentar o imóvel de forma estratégica e envolvente, destacando seus diferenciais
+            com uma narrativa persuasiva para acelerar a venda.<br>
+          <strong>Estilo:</strong> Cinematográfico e dinâmico.<br>
+          <strong>Equipamentos:</strong> Sony FX30 + DJI RS4 + DJI Mini 4 Pro<br>
+          <strong>Softwares:</strong> After Effects + Premiere Pro + Davinci Resolve<br>
+                <div class="neon-divider"></div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div data-aos="fade-up-left" class="card2">
+        <div class="image">
+          <video class="floating" controls loop poster="./videos/Casa02.png">
+            <source src="./videos/Casa02.mp4" type="video/mp4" />
+            Seu navegador não suporta vídeos HTML5.
+          </video>
+        </div>
+        <div class="text">
+          <h3>Casa Jardins Porto</h3>
+          <p><strong>Local:</strong> Goiânia – GO<br>
+          <strong>Objetivo:</strong> Fugir do padrão e mostrar a casa e o condomínio de forma real, direta e atrativa. Com narração que
+            valoriza cada detalhe e conecta com quem realmente quer comprar.<br>
+          <strong>Estilo:</strong> Cinematográfico e dinâmico.<br>
+          <strong>Equipamentos:</strong> Sony FX30 + DJI RS4 + DJI Mini 4 Pro<br>
+          <strong>Softwares:</strong> After Effects + Premiere Pro + Davinci Resolve<br>
+          <div class="neon-divider"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+<div class="butao-final-wrapper">
+  <button onclick="history.back()" class="butao-final">← Voltar</button>
+</div>
+
+<script>
+  // Controle dos vídeos
+  const videos = document.querySelectorAll("video");
+
+  videos.forEach((video) => {
+    video.addEventListener("play", () => {
+      videos.forEach((otherVideo) => {
+        if (otherVideo !== video) {
+          otherVideo.pause();
+        }
+      });
+      video.classList.add("paused-animation");
+    });
+
+    video.addEventListener("pause", () => {
+      video.classList.remove("paused-animation");
+    });
+  });
+
+  // Scroll suave com Lenis
+  const lenisScript = document.createElement("script");
+  lenisScript.src = "https://unpkg.com/lenis@1.1.14/dist/lenis.min.js";
+  lenisScript.onload = () => {
+    const lenis = new Lenis({
+      smooth: true,
+      duration: 0.7,
+      easing: (t) => 1 - Math.pow(1 - t, 4),
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  };
+  document.body.appendChild(lenisScript);
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+

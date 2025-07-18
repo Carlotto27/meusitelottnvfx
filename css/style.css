@@ -14,6 +14,111 @@
   --color-text: #e4e4e4;
   --p-color: #6e6e6e;
 }
+body.interna {
+  background-color: #06000a;
+  color: #e4e4e4;
+  font-family: "Poppins", sans-serif;
+  padding-top: 10rem;
+}
+
+/* Estilo dos vídeos e textos nas páginas internas */
+body.interna .wrapper {
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+body.interna .image {
+  margin-bottom: 2rem;
+}
+
+body.interna .image video {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+  object-fit: cover;
+}
+
+body.interna .text {
+  max-width: 800px;
+  margin: 2rem auto 5rem;
+  text-align: center;
+}
+
+body.interna .text h3 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+body.interna .text p {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #c7c7c7;
+  margin-bottom: 0.8rem;
+}
+body.interna .logo-sticker {
+  max-width: 400px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+body.interna .video-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+body.interna .video-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 🔥 ESSENCIAL: centraliza tudo horizontalmente */
+  gap: 1rem;
+}
+
+
+body.interna .video-item video {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+  max-width: 600px;
+}
+
+body.interna .video-item .text {
+  text-align: center;
+  width: 100%;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+
+
+@media (min-width: 768px) {
+  body.interna .video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25rem;
+  }
+  body.interna .logo-sticker {
+  max-width: 150px;
+  height: auto;
+  display: block;
+  margin: -6rem auto 4rem auto; /* margem em cima e centralizado horizontalmente */
+  }
+
+
+  body.interna .video-item {
+    flex-direction: column;
+    max-width: 600px;
+  }
+
+  body.interna .video-item .text {
+    text-align: center;
+    margin-top: 2rem;
+  }
+}
 
 html {
   scroll-behavior: smooth;
@@ -70,6 +175,80 @@ section {
   width: 100%;
   height: 100%;
   top: 0;
+}
+
+/* botões inicial */
+/* Estilo base para os cards com imagem retangular */
+.categoria-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+  border-radius: 2rem;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(139, 16, 225, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.categoria-card:hover {
+  transform: scale(3.02);
+  box-shadow: 0 0 40px rgba(139, 16, 225, 0.3);
+}
+
+.categoria-card .bg-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+
+
+  z-index: 0;
+}
+
+.categoria-card .categoria-info {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem;
+}
+
+.categoria-card .categoria-info h3 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.categoria-card .categoria-info p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: #FFFFFF;
+}
+#projects .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+
+@media (min-width: 768px) {
+  #projects .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+
+  .categoria-card .categoria-info h3 {
+    font-size: 4.4rem;
+  }
+
+  .categoria-card .categoria-info p {
+    font-size: 1.6rem;
+  }
 }
 
 /* HOME */
@@ -251,7 +430,6 @@ section {
 }
 
 #home .content .arrow {
-  filter: drop-shadow (2px 4px 15px #FFFFFF);
   margin-top: -15rem;
   padding-bottom: 1rem;
   transition: all 200ms ease-in-out;
@@ -265,7 +443,7 @@ section {
 #projects {
   overflow: hidden;
   background: rgba(0, 0, 0, 0.519);
-  box-shadow: 0 8px 32px 0 #FFFFFF);
+  box-shadow: 0 8px 32px 0 rgba(135, 0, 255, 0.5);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   position: relative;
@@ -309,34 +487,23 @@ section {
   font-size: 3.5rem;
   margin-bottom: 1rem;
 }
+#projects header h3 {
+  line-height: 1.1;
+  color: var(--color-text);
+  font-size: 1.6rem;
 
+}
 #projects header p {
   font-family: "Poppins", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: var(--p-color);
-  font-weight: 600;
+  font-weight: 400;
+  margin-bottom: 4.5rem;
 }
-
 
 
 #projects header {
-  margin-bottom: 8rem;
-}
-
-/* Mobile (1 coluna) */
-#projects .cards {
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
-}
-
-/* Desktop (2 colunas) */
-@media (min-width: 768px) {
-  #projects .cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10rem;
-  }
+  margin-bottom: 10rem;
 }
 
 
@@ -367,18 +534,6 @@ section {
   transform: scale(1.02);
 }
 
-#projects h3 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #d8d8d8;
-  margin-bottom: 0.5rem;
-}
-
-#projects p {
-  font-family: "Poppins", sans-serif;
-  color: var(--p-color);
-  font-size: 1.6rem;
-}
 
 .floating {
   animation: floating 6s ease-in-out infinite;
@@ -413,7 +568,7 @@ video:fullscreen {
 #competencias img.textoHabilidades {
   width: 100%;
   position: absolute;
-  top: 0;
+  top: 90px;
   left: 50%;
   transform: translate(-50%);
   z-index: -1;
@@ -631,11 +786,17 @@ video:fullscreen {
   }
 }
 
-@keyframes floating {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0px); }
+.floating {
+  animation: floating 4s ease-in-out infinite;
+  will-change: transform;
 }
+
+@keyframes floating {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
 
 @keyframes rotate {
   0% {
@@ -657,16 +818,25 @@ video:fullscreen {
   }
 }
 
-  #projects .card {
-    min-height: 200px; /* ou 600px, dependendo do conteúdo */
-}
+
 /* MEDIA QUERIES PC */
 @media (min-width: 1080px) {
   .wrapper {
     width: min(150rem, 100%);
   }
 
+  #projects header h2 {
+    font-size: 4.5rem; /* maior que o padrão para telas grandes */
+  }
 
+  #projects header h3 {
+    font-size: 2.2rem;
+  }
+
+  #projects header p {
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+  }
 
   header#home {
     background-image: none;
@@ -691,22 +861,6 @@ video:fullscreen {
   section#projects .wrapper header h2 {
     font-size: 5rem;
   }
-
-  .card .text {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-
-
-  #projects .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
-
 
 
 
@@ -805,7 +959,7 @@ video:fullscreen {
     font-size: 5rem;
     color: var(--color-text);
   }
-  }
+
 
   section#competenciasDesktop .cards .card span {
     color: var(--color-text);
@@ -825,4 +979,4 @@ video:fullscreen {
     display: block;
   }
 }
-}
+

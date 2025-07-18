@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projetos</title>
+  <link rel="stylesheet" href="./css/projects.css" />
+</head>
+<body>
+  <button onclick="history.back()" class="voltar-seta">‹</button>
+
+
+<!-- Banner -->
+  <header class="banner">
+  <!-- Desktop -->
+  <img src="./imagens/fundo-institucionais.png" alt="Fundo Desktop" class="banner-bg desktop-bg" />
+  <!-- Mobile -->
+  <img src="./imagens/fundo-institucionais-mobile.png" alt="Fundo Mobile" class="banner-bg mobile-bg" />
+  <div class="overlay"></div>
+    <a href="index.html" class="logo-banner-link">
+    <img src="./imagens/logolottin01.png" alt="Lottin Films" class="logo-banner" />
+  </a>
+  <div class="banner-content">
+    <h2>Institucionais</h2>
+    <p>Vídeos que traduzem a essência e os valores de uma marca ou empresa. Produções pensadas para gerar conexão, autoridade e presença no digital!</p>
+  </div>
+</header>
+
+
+
+<section class="projects-section">
+  <div class="cards2">
+    <!-- CARD 1 -->
+    <div data-aos="fade-up-left" class="card2">
+      <div class="image">
+        <video class="floating" controls loop poster="./videos/SomosAgorbrasilia.png">
+          <source src="./videos/Somosagorbrasilia.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeos HTML5.
+        </video>
+      </div>
+      <div class="text">
+        <h3>Somos Empilhadeiras</h3>
+          <p><strong>Local:</strong> Agrobrasilia (Brasília – DF)<br>
+          <strong>Objetivo:</strong> Reforçar a presença e autoridade da marca no setor agro, mostrando sua
+            atuação direta na AgroBrasília e sua relevância para o mercado. <br>
+          <strong>Estilo:</strong> Documental com ritmo, dinâmico e cinematográfico.<br>
+          <strong>Equipamentos:</strong> Sony FX30 + DJI RS4 + Hollyland Lark M1<br>
+          <strong>Softwares:</strong> Premiere Pro + Davinci Resolve <br>
+        <div class="neon-divider"></div>
+      </div>
+    </div>
+
+    <!-- CARD 2
+    <div data-aos="fade-up-right" class="card2">
+      <div class="image">
+        <video class="floating" controls loop poster="./videos/LovePicCasamento.png">
+          <source src="./videos/Lovepiccasamento.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeos HTML5.
+        </video>
+      </div>
+      <div class="text">
+        <h3>Love Pic - Casamneto</h3>
+          <p><strong>Local:</strong> Agrobrasilia (Brasília – DF)<br>
+          <strong>Objetivo:</strong> Reforçar a presença e autoridade da marca no setor agro, mostrando sua
+            atuação direta na AgroBrasília e sua relevância para o mercado. <br>
+          <strong>Estilo:</strong> Documental com ritmo, dinâmico e cinematográfico.<br>
+          <strong>Equipamentos:</strong> Sony FX30 + DJI RS4 + Hollyland Lark M1<br>
+          <strong>Softwares:</strong> Premiere Pro + Davinci Resolve <br>
+        <div class="neon-divider"></div>
+      </div>
+    </div>-->
+
+    <!-- CARD 3 -->
+    <div data-aos="fade-up-left" class="card2">
+      <div class="image">
+        <video class="floating" controls loop poster="./videos/DiaDasMães.png">
+          <source src="./videos/Diadasmães.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeos HTML5.
+        </video>
+      </div>
+      <div class="text">
+        <h3>Hortência - Dia das Mães</h3>
+          <p><strong>Local:</strong> Abadiânia – GO<br>
+          <strong>Objetivo:</strong> Criar uma conexão emocional com o público por meio de uma história afetiva,
+            associando a marca a momentos de carinho e união no Dia das Mães. <br>
+          <strong>Estilo:</strong> Cinematográfico, sentimental e conexão emocional.<br>
+          <strong>Equipamentos:</strong> Sony FX30 + DJI RS4 + Hollyland Lark M1<br>
+          <strong>Softwares:</strong> Premiere Pro + Davinci Resolve <br>
+        <div class="neon-divider"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="butao-final-wrapper">
+  <button onclick="history.back()" class="butao-final">← Voltar</button>
+</div>
+
+
+
+<script>
+  // Controle dos vídeos
+  const videos = document.querySelectorAll("video");
+
+  videos.forEach((video) => {
+    video.addEventListener("play", () => {
+      videos.forEach((otherVideo) => {
+        if (otherVideo !== video) {
+          otherVideo.pause();
+        }
+      });
+      video.classList.add("paused-animation");
+    });
+
+    video.addEventListener("pause", () => {
+      video.classList.remove("paused-animation");
+    });
+  });
+
+  // Scroll suave com Lenis
+  const lenisScript = document.createElement("script");
+  lenisScript.src = "https://unpkg.com/lenis@1.1.14/dist/lenis.min.js";
+  lenisScript.onload = () => {
+    const lenis = new Lenis({
+      smooth: true,
+      duration: 0.7,
+      easing: (t) => 1 - Math.pow(1 - t, 4),
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  };
+  document.body.appendChild(lenisScript);
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
