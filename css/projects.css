@@ -372,7 +372,7 @@ body, #projects-aba {
 .banner-content h2 {
   font-size: 7.5rem;
   margin-bottom: 0.5rem;
-  margin-top: 80px; /* remove espaço de cima */
+  margin-top: 40px; /* remove espaço de cima */
 }
 
 .banner-content p {
