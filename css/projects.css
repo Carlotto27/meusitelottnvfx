@@ -407,8 +407,7 @@ body, #projects-aba {
 
 
   .projects-section {
-    margin-top: 0; /* ajuste o valor conforme necessário */
-    background-color: black; /* ou #000 */
+    margin-top: 2rem; /* ajuste o valor conforme necessário */
   }
 }
 
