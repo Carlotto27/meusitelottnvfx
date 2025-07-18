@@ -1,1 +1,478 @@
 
+:root {
+  font-size: 62.5%;
+  --color-text: #e4e4e4;
+  --p-color: #6e6e6e;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Mono", monospace;
+  background-color: #06000a;
+  color: var(--color-text);
+}
+body, #projects-aba {
+  background-color: black; /* ou #000 para escuro neutro */
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Seção específica */
+#projects-aba {
+  padding: 10rem 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  position: relative;
+  overflow: hidden; /* esconde partes fora da div principal */
+}
+
+/* Wrapper com padding lateral */
+.wrapper {
+  position: relative;
+  z-index: 1;
+  padding: 1rem 1rem;
+  color: white;
+}
+/* Header da seção */
+#projects-aba header {
+  text-align: center;
+  margin-bottom: 8rem;
+}
+#projects-aba header h2 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+#projects-aba header p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  color: var(--p-color);
+  font-weight: 600;
+}
+
+/* Lista de cards */
+.cards2 {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .cards2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 500px));
+    column-gap: 20rem; /* espaçamento entre colunas (horizontal) */
+    row-gap: 6rem;     /* espaçamento entre linhas (vertical) */
+    justify-content: center;
+  }
+
+  .card2 {
+    margin: 0 auto;
+    max-width: 100%; /* importante: evita que fiquem “estreitos” */
+  }
+  .cards2 > .card2:nth-last-child(1):nth-child(odd) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  max-width: 500px; /* ou o mesmo valor da grid-template-columns */
+}
+
+}
+@media (max-width: 768px) {
+  .card2 .image {
+    display: flex;
+    justify-content: center;
+    row-gap: 6rem;     /* espaçamento entre linhas (vertical) */
+    margin-bottom: 0; /* adicione isso se ainda não tiver */
+  }
+
+
+  .card2 .image video {
+    width: 80%;
+    max-width: 80%;
+  }
+  .card2 .text h3 {
+    font-size: 1.8rem;
+    margin-top: 1rem; /* adicione se quiser um pouco de espaço */
+  margin-bottom: 0.1rem; /* reduza para aproximar do <p> */
+  }
+
+  .card2 .text p {
+    margin-bottom: 1rem;
+    margin-top: 1px;
+  }
+
+  .card2 .text {
+  margin: 0 3rem;
+
+  }
+  .cards2 {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* aumenta o espaço entre os cards no celular */
+    padding: 0 1rem;
+  }
+}
+
+/* Card individual */
+.card2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Vídeo */
+.card2 .image video {
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 1.5rem;
+  background-color: black;
+  animation: floating 6s ease-in-out infinite;
+  transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+  filter: drop-shadow(2px 4px 20px rgba(28, 12, 52, 0.4));
+}
+.card2 .image video:hover {
+  transform: scale(1.02);
+  filter: drop-shadow(1px 3px 15px rgba(28, 12, 52, 1));
+}
+
+/* TPositiion */
+
+.projects-section {
+  position: relative;
+  z-index: 99;
+  margin-top: -5rem;
+}
+
+/* Texto do card */
+.card2 .text {
+  text-align: left;
+  padding: 0; /* ou algo como padding: 0 1rem; */
+  width: 100%;
+}
+
+.card2 .text h3 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #d8d8d8;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.card2 .text p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  color: var(--p-color);
+  margin-bottom: 1rem;
+  line-height: 1.3; /* <-- adiciona espaço entre linhas */
+}
+@media (max-width: 768px) {
+  .card2 .text {
+    margin: 0; /* garante que não está usando margin lateral */
+    ++-
+    max-width: 100%;
+  }
+
+  .card2 .text h3 {
+    font-size: 2.8rem;
+  }
+
+  .card2 .text p {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.3rem;
+    color: var(--p-color);
+    margin-bottom: 0;
+    padding: 0 4rem; /* espaço nas laterais */
+  }
+}
+
+.logo-banner-link {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.logo-banner {
+  width: 100px;
+  height: auto;
+  opacity: 0.95;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.logo-banner:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+/* Responsivo para mobile */
+@media (max-width: 768px) {
+  .logo-banner {
+    width: 70px;
+  }
+
+  .logo-banner-link {
+    top: 3.2rem;
+  }
+}
+
+.youtube-thumbnail-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* Limita a largura no desktop */
+  margin: 0 auto;    /* Centraliza */
+  aspect-ratio: 16 / 9;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background-color: black;
+  cursor: pointer;
+}
+
+.youtube-thumbnail-wrapper img.youtube-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  border-radius: 1.5rem;
+  display: block;
+}
+
+.youtube-thumbnail-wrapper:hover img.youtube-thumb {
+  transform: scale(1.02);
+  filter: drop-shadow(1px 3px 15px rgba(28, 12, 52, 1));
+}
+@media (max-width: 768px) {
+  .youtube-thumbnail-wrapper {
+    width: 90%;
+    max-width: 350px;
+  }
+}
+
+
+
+/* Animação de flutuação */
+@keyframes floating {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+.paused-animation {
+  animation-play-state: paused !important;
+}
+
+/* Responsivo: grid para desktop */
+
+
+.voltar-seta {
+  all: unset; /* remove todos os estilos nativos do botão */
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 4rem;
+  cursor: pointer;
+  text-shadow: 0 0 10px white, 0 0 20px white;
+  z-index: 9999;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  opacity: 0.8;
+  line-height: 1;
+}
+
+.voltar-seta:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Responsivo para mobile */
+@media (max-width: 768px) {
+  .voltar-seta {
+    font-size: 2.5rem;
+    top: 34px;
+    left: 25px;
+  }
+}
+
+/* Para telas grandes */
+@media (min-width: 1200px) {
+  .voltar-seta {
+    font-size: 5.5rem;
+    top: 44px;
+    left: 45px;
+  }
+}
+.banner {
+  position: relative;
+  z-index: 10; /* <-- força o banner acima apenas no seu espaço */
+  width: 100%;
+  height: 50vh;
+  padding-top: 3rem;
+  background-color: black;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+  isolation: isolate; /* isola z-index internamente */
+}
+
+.banner-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+.mobile-bg {
+  display: none;
+}
+@media (max-width: 768px) {
+  .desktop-bg {
+    display: none;
+  }
+
+  .mobile-bg {
+    display: block;
+    object-position: center;
+  }
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(2px);
+  z-index: 1; /* camada acima da imagem, mas abaixo do conteúdo */
+}
+
+
+.banner .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,1));
+  z-index: 2; /* acima da ::before */
+
+}
+
+
+.banner-content {
+  position: relative;
+  z-index: 3; /* acima de tudo */
+  text-align: center;
+  color: white;
+  padding: 2rem 1rem;
+}
+
+
+.banner-content h2 {
+  font-size: 7.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 80px; /* remove espaço de cima */
+}
+
+.banner-content p {
+  font-size: 1.8rem;
+  opacity: 0.9;
+  max-width: 1000px;      /* Limita o tamanho da linha */
+  line-height: 1.3;      /* Dá respiro entre as linhas */
+  word-wrap: break-word; /* Garante quebra de palavras longas */
+  white-space: normal;   /* Permite quebras de linha normais */
+}
+
+
+/* Responsivo para celular */
+@media (max-width: 768px) {
+  .banner {
+    min-height: 50vh;
+    padding-top: 6rem; /* dá respiro pro conteúdo */
+    padding-bottom: 4rem; /* evita corte no final */
+  }
+
+  .banner-content h2 {
+    font-size: 4.5rem;
+    margin-top: 40px; /* remove espaço de cima */
+  }
+
+  .banner-content p {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    padding: 0 2rem;
+  }
+
+
+
+  .projects-section {
+    margin-top: -6rem; /* ajuste o valor conforme necessário */
+  }
+}
+
+  /* Container do botão no final */
+  .butao-final-wrapper {
+    width: 100%;
+    text-align: center;
+    margin-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  /* Botão em si */
+  .butao-final {
+    background-color: #0e0017;
+    color: white;
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.8rem;
+    box-shadow: 0 0 10px rgba(92, 0, 154, 0.2);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .butao-final:hover {
+    background-color: #7900c9;
+    transform: scale(1.05);
+  }
+
+  /* Responsivo para celular */
+  @media (max-width: 768px) {
+    .butao-final {
+      font-size: 1.8rem;
+      padding: 1rem 3rem;
+    }
+  }
+  .neon-divider {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .neon-divider {
+      display: block;
+      height: 1px;
+      width: 100%;
+      background: linear-gradient(90deg, rgba(140, 0, 255, 0.2), rgba(135, 0, 255, 0.5), rgba(140, 0, 255, 0.2));
+      box-shadow: 0 0 8px rgba(17, 0, 255, 0.2);
+      margin: 3rem 0;
+      border-radius: 1px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .card-wrapper {
+      display: contents;
+    }
+  }
+
+  .card2 .image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .floating {
+    animation: floating 6s ease-in-out infinite;
+  }
+
