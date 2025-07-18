@@ -1,4 +1,3 @@
-
 :root {
   font-size: 62.5%;
   --color-text: #e4e4e4;
@@ -145,7 +144,7 @@ body, #projects-aba {
 .projects-section {
   position: relative;
   z-index: 99;
-  margin-top: -5rem;
+  margin-top: -8rem;
 }
 
 /* Texto do card */
@@ -389,26 +388,26 @@ body, #projects-aba {
 /* Responsivo para celular */
 @media (max-width: 768px) {
   .banner {
-    min-height: 50vh;
-    padding-top: 6rem; /* dá respiro pro conteúdo */
-    padding-bottom: 4rem; /* evita corte no final */
+    height: 30vh;
   }
 
   .banner-content h2 {
-    font-size: 4.5rem;
-    margin-top: 40px; /* remove espaço de cima */
+    font-size: 4.8rem;
   }
 
   .banner-content p {
-    font-size: 1.3rem;
-    line-height: 1.5;
-    padding: 0 2rem;
+    font-size: 1.2rem; /* Menor, mais confortável */
+    padding: 0 20px; /* Espaço lateral */
+    text-align: center; /* Centraliza o texto */
+    max-width: 100%; /* Usa largura total do celular */
+    line-height: 1.6; /* Respiração entre as linhas */
+    margin-top: 0px; /* remove espaço de cima */
   }
 
 
 
   .projects-section {
-    margin-top: -6rem; /* ajuste o valor conforme necessário */
+    margin-top: 4rem; /* ajuste o valor conforme necessário */
   }
 }
 
