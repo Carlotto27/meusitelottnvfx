@@ -388,26 +388,25 @@ body, #projects-aba {
 /* Responsivo para celular */
 @media (max-width: 768px) {
   .banner {
-    height: 30vh;
+    min-height: 50vh;
+    padding-top: 6rem; /* dá respiro pro conteúdo */
+    padding-bottom: 4rem; /* evita corte no final */
   }
 
   .banner-content h2 {
-    font-size: 4.8rem;
+    font-size: 4.5rem;
   }
 
   .banner-content p {
-    font-size: 1.2rem; /* Menor, mais confortável */
-    padding: 0 20px; /* Espaço lateral */
-    text-align: center; /* Centraliza o texto */
-    max-width: 100%; /* Usa largura total do celular */
-    line-height: 1.6; /* Respiração entre as linhas */
-    margin-top: 0px; /* remove espaço de cima */
+    font-size: 1.3rem;
+    line-height: 1.5;
+    padding: 0 2rem;
   }
 
 
 
   .projects-section {
-    margin-top: 14rem; /* ajuste o valor conforme necessário */
+    margin-top: -6rem; /* ajuste o valor conforme necessário */
   }
 }
 
