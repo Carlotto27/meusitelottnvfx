@@ -144,7 +144,7 @@ body, #projects-aba {
 .projects-section {
   position: relative;
   z-index: 99;
-  margin-top: -8rem;
+  margin-top: -5rem;
 }
 
 /* Texto do card */
@@ -407,7 +407,7 @@ body, #projects-aba {
 
 
   .projects-section {
-    margin-top: 4rem; /* ajuste o valor conforme necessário */
+    margin-top: 14rem; /* ajuste o valor conforme necessário */
   }
 }
 
