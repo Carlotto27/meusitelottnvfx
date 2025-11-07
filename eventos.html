@@ -100,28 +100,64 @@
         </div>
       </div>
 
-  Cards -->
-  <!-- CARD 1 - YouTube com thumbnail personalizada -->
-  <div data-aos="fade-up-left" class="card2">
-        <div class="image youtube-thumbnail-wrapper" onclick="loadYoutube(this)">
-        <img
-          src="./videos/Bodas.webp"
-          alt="Thumbnail do vídeo"
-          class="youtube-thumb floating"
-        />
-      </div>
+          Cards -->
+          <!-- CARD 1 -->
+        <div data-aos="fade-up-left" class="card2">
+          <div
+            class="image youtube-thumbnail-wrapper"
+            onclick="loadYoutube(this)"
+            data-video-id="wti46XNYF4o"
+          >
+            <img
+              src="./videos/Bodas.webp"
+              alt="Thumbnail do vídeo"
+              class="youtube-thumb floating"
+            />
+          </div>
 
-      <div class="text">
-        <h3>Bodas de Ouro</h3>
-        <p><strong>Local:</strong> Abadiânia – GO<br>
-          <strong>Objetivo:</strong> Registrar o evento de forma sensível e autêntica, destacando as três fases marcantes da celebração:
-          o início delicado, a bênção religiosa e o momento festivo final.<br>
-          <strong>Estilo:</strong> Cinematográfico, sentimental e dinâmico.<br>
-          <strong>Equipamentos:</strong> Sony FX30 + DJI RS4<br>
-          <strong>Softwares:</strong> Premiere Pro + Davinci Resolve<br>
-        <div class="neon-divider"></div>
-      </div>
-    </div>
+          <div class="text">
+            <h3>Bodas de Ouro</h3>
+            <p>
+              <strong>Local:</strong> Abadiânia – GO<br>
+              <strong>Objetivo:</strong> Registrar o evento de forma sensível e autêntica,
+              destacando as três fases marcantes da celebração: o início delicado, a
+              bênção religiosa e o momento festivo final.<br>
+              <strong>Estilo:</strong> Cinematográfico, sentimental e dinâmico.<br>
+              <strong>Equipamentos:</strong> Sony FX30 + DJI RS4<br>
+              <strong>Softwares:</strong> Premiere Pro + Davinci Resolve
+            </p>
+            <div class="neon-divider"></div>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div data-aos="fade-up-left" class="card2">
+          <div
+            class="image youtube-thumbnail-wrapper"
+            onclick="loadYoutube(this)"
+            data-video-id="1gc0rUtSyUI"
+          >
+            <img
+              src="./videos/PedidoDeCasamento2.webp"
+              alt="Thumbnail do novo vídeo"
+              class="youtube-thumb floating"
+            />
+          </div>
+
+          <div class="text">
+            <h3>Pedido de Casamento Surpresa</h3>
+            <p>
+              <strong>Local:</strong> Anápolis – GO<br>
+              <strong>Objetivo:</strong> Retratar o pedido de casamento de forma emocionante e verdadeira,
+              capturando cada detalhe da decoração, o encanto do ambiente e a reação genuína da noiva no momento da surpresa.<br>
+              <strong>Estilo:</strong> Romântico, cinematográfico e sensível. <br>
+              <strong>Equipamentos:</strong> Sony FX30 + DJI RS4<br>
+              <strong>Softwares:</strong> Premiere Pro + Davinci Resolve
+            </p>
+            <div class="neon-divider"></div>
+          </div>
+        </div>
+
       </div>
 
 <div class="butao-final-wrapper">
@@ -149,18 +185,24 @@
 
   // Script para trocar thumbnail por vídeo do YouTube
   function loadYoutube(container) {
-    const iframe = document.createElement('iframe');
-    iframe.setAttribute('src', 'https://www.youtube.com/embed/wti46XNYF4o?autoplay=1&rel=0');
-    iframe.setAttribute('frameborder', '0');
-    iframe.setAttribute('allowfullscreen', '');
-    iframe.setAttribute('allow', 'autoplay; encrypted-media');
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.borderRadius = '1.5rem';
+    const videoId = container.dataset.videoId; // pega o ID do atributo data-video-id
+    const iframe = document.createElement("iframe");
+    iframe.setAttribute(
+      "src",
+      `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`
+    );
+    iframe.setAttribute("frameborder", "0");
+    iframe.setAttribute("allowfullscreen", "");
+    iframe.setAttribute("allow", "autoplay; encrypted-media");
+    iframe.style.width = "100%";
+    iframe.style.height = "100%";
+    iframe.style.borderRadius = "1.5rem";
 
-    container.innerHTML = '';
+    container.innerHTML = "";
     container.appendChild(iframe);
   }
+
+  // Script de rolagem suave (Lenis)
   const lenisScript = document.createElement("script");
   lenisScript.src = "https://unpkg.com/lenis@1.1.14/dist/lenis.min.js";
   lenisScript.onload = () => {
@@ -179,6 +221,7 @@
   };
   document.body.appendChild(lenisScript);
 </script>
+
 <script>
   const lazyVideos = document.querySelectorAll("video.lazy-video");
 
