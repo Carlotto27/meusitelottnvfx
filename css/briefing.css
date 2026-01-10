@@ -186,6 +186,12 @@ input[type="radio"]:checked::after {
   transform: translateY(-3px);
   box-shadow: 0 14px 40px rgba(162,0,255,0.45);
 }
+.briefing-logo {
+  display: block;
+  max-width: 200px;
+  width: 100%;
+  margin: 0 auto 3.5rem;
+}
 
 /* ========================= */
 /* MOBILE OPTIMIZATION */
@@ -196,6 +202,12 @@ input[type="radio"]:checked::after {
   body {
     font-size: 14px;
   }
+  @media (max-width: 640px) {
+  .briefing-logo {
+    max-width: 140px;
+    margin-bottom: 3rem;
+  }
+
 
   .briefing-container {
     padding: 3rem 1rem 4rem;
