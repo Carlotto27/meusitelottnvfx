@@ -36,10 +36,11 @@
     <!-- 2. SOBRE O NEGÓCIO -->
     <div class="card">
       <h2>2. Sobre o Negócio</h2>
+      <p>O que sua empresa vende hoje? (produto ou serviço, seja bem específico)</p>
 
-      <textarea name="o_que_vende" placeholder="O que sua empresa vende hoje? (produto ou serviço, seja específico)" required></textarea>
-
-      <input type="text" name="ticket_medio" placeholder="Qual é o ticket médio? (valor aproximado de uma venda)">
+      <textarea name="o_que_vende" placeholder="" required></textarea>
+      <p>Qual é o ticket médio? (valor aproximado de uma venda)</p>
+      <input type="text" name="ticket_medio" placeholder="">
 
       <p>Onde acontece a maior parte das vendas?</p>
       <label><input type="checkbox" name="canais_venda" value="Instagram"> Instagram</label><br>
@@ -71,19 +72,21 @@
     <!-- 4. PÚBLICO-ALVO -->
     <div class="card">
       <h2>4. Público-alvo</h2>
-
-      <textarea name="cliente_ideal" placeholder="Quem é o cliente ideal?"></textarea>
-
+      <p>Quem é o seu cliente ideal?</p>
+      <textarea name="cliente_ideal" placeholder=""></textarea>
+      <p>Qual é a idade média?</p>
       <input type="text" name="idade_media" placeholder="Idade média">
+      <p>Qual gênero?</p>
       <input type="text" name="genero" placeholder="Gênero">
-      <input type="text" name="localizacao" placeholder="Localização">
+      <p>Qual é a localização? (Endereço e cidade)</p>
+      <input type="text" name="localizacao" placeholder="">
 
       <p>Esse público já conhece sua marca?</p>
       <label><input type="radio" name="conhecimento_marca" value="Sim"> Sim</label><br>
       <label><input type="radio" name="conhecimento_marca" value="Não"> Não</label><br>
       <label><input type="radio" name="conhecimento_marca" value="Parte sim, parte não"> Parte sim, parte não</label>
-
-      <textarea name="objecao_publico" placeholder="Qual é a maior objeção desse público antes de comprar? (Preço, confiança, necessidade, comparação com concorrentes, etc.)"></textarea>
+      <p>Qual é a maior objeção desse público antes de comprar? (Preço, confiança, necessidade, comparação com concorrentes, etc.)</p>
+      <textarea name="objecao_publico" placeholder=""></textarea>
     </div>
 
     <!-- 5. CONTEÚDO ATUAL -->
@@ -101,8 +104,8 @@
       <input type="text" name="perfil_1" placeholder="Perfil 1">
       <input type="text" name="perfil_2" placeholder="Perfil 2">
       <input type="text" name="perfil_3" placeholder="Perfil 3">
-
-      <textarea name="o_que_gosta_perfis" placeholder="O que você gosta ou acha interessante nesses perfis?"></textarea>
+      <p>O que você gosta ou acha interessante nesses perfis?</p>
+      <textarea name="o_que_gosta_perfis" placeholder=""></textarea>
     </div>
 
     <!-- 6. POSICIONAMENTO & ESTILO -->
@@ -140,9 +143,11 @@
       <label><input type="checkbox" name="participantes" value="Clientes reais"> Clientes reais</label>
 
       <p>Com que frequência você imagina postar?</p>
-      <label><input type="radio" name="frequencia" value="1–2x por semana"> 1–2x por semana</label><br>
+      <label><input type="radio" name="frequencia" value="1–2x por semana"> 1x por semana</label><br>
+      <label><input type="radio" name="frequencia" value="3–4x por semana"> 2x por semana</label><br>
       <label><input type="radio" name="frequencia" value="3–4x por semana"> 3–4x por semana</label><br>
       <label><input type="radio" name="frequencia" value="Diário"> Diário</label>
+
     </div>
 
     <!-- 8. EXPECTATIVA -->
