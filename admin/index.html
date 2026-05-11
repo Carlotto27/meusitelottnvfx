@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Administrativo | Lottin Films</title>
+  <link rel="icon" href="../assets/images/logolottin.webp" type="image/png" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+</head>
+<body class="admin-dashboard-body">
+  <div id="particles-js"></div>
+
+  <div class="admin-wrapper">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-header">
+        <img src="../assets/images/logolottin01.webp" alt="Lottin Films" class="admin-logo-small">
+        <h3>Admin Panel</h3>
+      </div>
+      <ul class="sidebar-menu">
+        <li class="active" data-tab="portfolio">Projetos</li>
+        <li data-tab="categories">Portfólio</li>
+        <li data-tab="contact">Contato</li>
+      </ul>
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="admin-btn logout-btn">Sair</button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      
+      <!-- ABA: PORTFOLIO -->
+      <section id="tab-portfolio" class="admin-section active">
+        <div class="section-header">
+          <h2>Gerenciar Projetos</h2>
+          <button id="btnNewProject" class="admin-btn primary-btn">+ Novo Projeto</button>
+        </div>
+
+        <div class="filters">
+          <input type="text" id="searchProject" placeholder="Buscar projeto...">
+          <select id="filterCategory">
+            <option value="">Todas as Categorias</option>
+            <option value="carros">Carros</option>
+            <option value="comerciais">Comerciais</option>
+            <option value="eventos">Eventos</option>
+            <option value="imobiliario">Imobiliário</option>
+            <option value="institucionais">Institucionais</option>
+            <option value="edicoes">Edições</option>
+            <option value="trends">Trends</option>
+          </select>
+        </div>
+
+        <!-- Grid de Projetos -->
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Renderizado via JS -->
+          <div class="loading-state">Carregando projetos...</div>
+        </div>
+      </section>
+
+      <!-- ABA: CATEGORIAS (PORTFOLIO) -->
+      <section id="tab-categories" class="admin-section">
+        <div class="section-header">
+          <h2>Gerenciar Categorias (Portfólio)</h2>
+          <button id="btnNewCategory" class="admin-btn primary-btn">+ Nova Categoria</button>
+        </div>
+
+        <div class="filters">
+          <input type="text" id="searchCategory" placeholder="Buscar categoria...">
+        </div>
+
+        <!-- Grid de Categorias -->
+        <div class="projects-grid" id="categoriesGrid">
+          <div class="loading-state">Carregando categorias...</div>
+        </div>
+      </section>
+
+      <!-- ABA: CONTATO -->
+      <section id="tab-contact" class="admin-section">
+        <div class="section-header">
+          <h2>Informações de Contato</h2>
+        </div>
+
+        <form id="contactForm" class="admin-form">
+          <div class="form-row">
+            <div class="input-group">
+              <label>Nome Principal</label>
+              <input type="text" id="contactName" name="name" required>
+            </div>
+            <div class="input-group">
+              <label>Profissão / Subtítulo</label>
+              <input type="text" id="contactProfession" name="profession" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="input-group">
+              <label>Localização (Cidade)</label>
+              <input type="text" id="contactCity" name="city" required>
+            </div>
+            <div class="input-group">
+              <label>Email</label>
+              <input type="email" id="contactEmail" name="email" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <label>WhatsApp (Somente números com DDI, ex: 55629...)</label>
+              <input type="text" id="contactWhatsapp" name="whatsapp" required>
+            </div>
+            <div class="input-group">
+              <label>Instagram (@ ou link)</label>
+              <input type="text" id="contactInstagram" name="instagram" required>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Texto Descritivo (Use \n para pular linha)</label>
+            <textarea id="contactDescription" name="description" rows="4" required></textarea>
+          </div>
+
+          <div class="input-group">
+            <label>Foto de Perfil Atual</label>
+            <img id="contactImagePreview" src="" alt="Perfil" class="preview-img-small">
+            <label>Nova Foto (Opcional, formato webp recomendado)</label>
+            <input type="file" id="contactImage" name="profile_image" accept="image/*">
+          </div>
+
+          <button type="submit" class="admin-btn primary-btn">Salvar Alterações</button>
+          <div id="contactFeedback" class="feedback-msg"></div>
+        </form>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- MODAL: FORMULÁRIO DE PROJETO -->
+  <div class="modal-overlay" id="projectModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalProjectTitle">Novo Projeto</h3>
+        <button class="close-modal">&times;</button>
+      </div>
+      <form id="projectForm" class="admin-form">
+        <input type="hidden" id="projectId" name="id">
+        
+        <div class="form-row">
+          <div class="input-group">
+            <label>Título do Projeto</label>
+            <input type="text" id="projTitle" name="title" required>
+          </div>
+          <div class="input-group">
+            <label>Categoria</label>
+            <select id="projCategory" name="category" required>
+              <option value="carros">Carros</option>
+              <option value="comerciais">Comerciais</option>
+              <option value="eventos">Eventos</option>
+              <option value="imobiliario">Imobiliário</option>
+              <option value="institucionais">Institucionais</option>
+              <option value="edicoes">Edições</option>
+              <option value="trends">Trends</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="input-group">
+            <label>Local</label>
+            <input type="text" id="projLocation" name="location">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="input-group">
+            <label>Cliente / Agência</label>
+            <input type="text" id="projClient" name="client">
+          </div>
+          <div class="input-group">
+            <label>Equipamentos</label>
+            <input type="text" id="projEquipment" name="equipment">
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Objetivo</label>
+          <input type="text" id="projObjective" name="objective">
+        </div>
+
+        <div class="input-group">
+          <label>Destaques / Descrição (O que aparece no cartão)</label>
+          <textarea id="projDescription" name="description" rows="3"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="input-group file-group">
+            <label>Thumbnail / Capa (Recomendado: .webp)</label>
+            <input type="file" id="projThumbnail" name="thumbnail" accept="image/*">
+            <div id="thumbPreviewText" class="file-status"></div>
+          </div>
+          <div class="input-group">
+            <label>Tipo de Vídeo</label>
+            <select id="videoType" name="video_type">
+              <option value="local">Apenas Vídeo Local</option>
+              <option value="youtube">Vídeo do YouTube</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="youtubeContainer" class="input-group" style="display: none;">
+          <label>Link do YouTube</label>
+          <div style="position: relative; display: flex; align-items: center;">
+            <input type="url" id="projYoutubeLink" name="youtube_url" placeholder="Ex: https://www.youtube.com/watch?v=..." style="width: 100%; padding-right: 40px;">
+            <span id="youtubeStatusIcon" style="position: absolute; right: 10px; font-size: 1.2rem;"></span>
+          </div>
+          <div id="youtubeFeedback" class="feedback-msg" style="margin-top: 5px; font-size: 0.9rem;"></div>
+          <div id="youtubePreviewContainer" style="display: none; margin-top: 15px; border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #000;">
+            <iframe id="youtubePreviewIframe" width="100%" height="100%" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="form-row" id="localVideoContainer">
+          <div class="input-group file-group" style="width: 100%;">
+            <label>Vídeo (.mp4)</label>
+            <input type="file" id="projVideo" name="video" accept="video/mp4">
+            <div id="videoPreviewText" class="file-status"></div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="admin-btn secondary-btn close-modal-btn">Cancelar</button>
+          <button type="submit" class="admin-btn primary-btn" id="btnSaveProject">Salvar Projeto</button>
+        </div>
+        <div id="projectFeedback" class="feedback-msg"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: CONFIRMAÇÃO DE EXCLUSÃO -->
+  <div class="modal-overlay" id="deleteModal">
+    <div class="modal-content delete-modal">
+      <h3>⚠️ Excluir Permanentemente?</h3>
+      <p>Você está prestes a excluir o projeto <strong id="deleteProjectName"></strong>.</p>
+      <ul class="delete-warnings">
+        <li>O título, descrição e dados serão apagados.</li>
+        <li>O arquivo de vídeo (.mp4) será removido do servidor.</li>
+        <li>A imagem de capa (.webp) será removida do servidor.</li>
+        <li>A ação <strong>não poderá ser desfeita</strong>.</li>
+      </ul>
+      <div class="form-actions">
+        <button type="button" class="admin-btn secondary-btn" id="btnCancelDelete">Cancelar</button>
+        <button type="button" class="admin-btn danger-btn" id="btnConfirmDelete">Excluir Permanentemente</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: FORMULÁRIO DE CATEGORIA -->
+  <div class="modal-overlay" id="categoryModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalCategoryTitle">Nova Categoria</h3>
+        <button class="close-modal">&times;</button>
+      </div>
+      <form id="categoryForm" class="admin-form">
+        <input type="hidden" id="categoryId" name="id">
+        
+        <div class="input-group">
+          <label>Nome da Categoria</label>
+          <input type="text" id="catName" name="name" required>
+        </div>
+
+        <div class="input-group">
+          <label>Descrição</label>
+          <textarea id="catDescription" name="description" rows="3"></textarea>
+        </div>
+
+        <div class="input-group file-group">
+          <label>Thumbnail / Capa da Categoria (16:9 recomendado, ex: 1280x720)</label>
+          <input type="file" id="catThumbnail" name="thumbnail" accept="image/*">
+          <div id="catThumbPreviewText" class="file-status"></div>
+        </div>
+
+        <div class="form-row">
+          <div class="input-group file-group">
+            <label>Plano de Fundo Desktop (16:9 recomendado)</label>
+            <input type="file" id="catBgDesktop" name="bg_desktop" accept="image/*">
+            <div id="catBgDesktopPreviewText" class="file-status"></div>
+          </div>
+          <div class="input-group file-group">
+            <label>Plano de Fundo Mobile (9:16 recomendado)</label>
+            <input type="file" id="catBgMobile" name="bg_mobile" accept="image/*">
+            <div id="catBgMobilePreviewText" class="file-status"></div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="admin-btn secondary-btn close-modal-btn">Cancelar</button>
+          <button type="submit" class="admin-btn primary-btn" id="btnSaveCategory">Salvar Categoria</button>
+        </div>
+        <div id="categoryFeedback" class="feedback-msg"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: CONFIRMAÇÃO DE EXCLUSÃO DE CATEGORIA -->
+  <div class="modal-overlay" id="deleteCategoryModal">
+    <div class="modal-content delete-modal">
+      <h3>⚠️ Excluir Permanentemente?</h3>
+      <p>Você está prestes a excluir a categoria <strong id="deleteCategoryName"></strong>.</p>
+      <ul class="delete-warnings">
+        <li>A página HTML desta categoria será removida do ar.</li>
+        <li>As imagens associadas serão apagadas do servidor.</li>
+        <li>Os projetos ligados a esta categoria não serão apagados, mas ficarão sem categoria visível.</li>
+        <li>A ação <strong>não poderá ser desfeita</strong>.</li>
+      </ul>
+      <div class="form-actions">
+        <button type="button" class="admin-btn secondary-btn" id="btnCancelCategoryDelete">Cancelar</button>
+        <button type="button" class="admin-btn danger-btn" id="btnConfirmCategoryDelete">Excluir Permanentemente</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/js/particles.min.js"></script>
+  <script>
+    particlesJS({
+        particles: {
+          number: { value: 30, density: { enable: true, value_area: 800 } },
+          color: { value: "#2b2b2b" },
+          shape: { type: "circle" },
+          opacity: { value: 0.3, random: true },
+          size: { value: 3, random: true },
+          line_linked: { enable: true, distance: 150, color: "#4f0059", opacity: 0.2, width: 1 },
+          move: { enable: true, speed: 1, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
+        },
+        interactivity: { detect_on: "canvas", events: { onhover: { enable: false }, onclick: { enable: false }, resize: true } },
+        retina_detect: true
+    });
+  </script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Admin Lottin Films</title>
+  <link rel="icon" href="../assets/images/logolottin.webp" type="image/png" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+</head>
+<body class="admin-body">
+  <div id="particles-js"></div>
+
+  <div class="login-container">
+    <div class="login-box">
+      <img src="../assets/images/logolottin01.webp" alt="Lottin Films" class="admin-logo">
+      <h2>Acesso Restrito</h2>
+      <p>Área administrativa do portfólio</p>
+
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="username">Login</label>
+          <input type="text" id="username" name="username" required placeholder="Digite seu usuário">
+        </div>
+        <div class="input-group">
+          <label for="password">Senha</label>
+          <input type="password" id="password" name="password" required placeholder="Digite sua senha">
+        </div>
+        <div class="error-message" id="loginError"></div>
+        <button type="submit" class="admin-btn primary-btn">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="../assets/js/particles.min.js"></script>
+  <script>
+    // Configuração dos particles igual ao index.html, mas com menor densidade
+    particlesJS({
+        particles: {
+          number: { value: 40, density: { enable: true, value_area: 800 } },
+          color: { value: "#e200ff" },
+          shape: { type: "circle" },
+          opacity: { value: 0.5, random: true },
+          size: { value: 3, random: true },
+          line_linked: { enable: true, distance: 150, color: "#a700bd", opacity: 0.2, width: 1 },
+          move: { enable: true, speed: 1.5, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
+        },
+        interactivity: { detect_on: "canvas", events: { onhover: { enable: false }, onclick: { enable: false }, resize: true } },
+        retina_detect: true
+    });
+  </script>
+  <script src="../assets/js/admin-login.js"></script>
+</body>
+</html>
