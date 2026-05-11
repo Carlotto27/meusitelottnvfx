@@ -1,0 +1,195 @@
+@keyframes navbarSlideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Navbar Base */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5%;
+  background: transparent;
+  transition: transform 0.4s ease, background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+  animation: navbarSlideDown 0.8s ease-out;
+}
+
+/* Esconder nav ao rolar para baixo */
+#navbar.hidden {
+  transform: translateY(-100%);
+}
+
+/* Quando passa da hero */
+#navbar.scrolled {
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Desktop */
+@media (min-width: 1080px) {
+  .hamburger {
+    display: none !important;
+  }
+
+  .nav-content {
+    position: static;
+    width: 100%;
+    height: auto;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6rem;
+  }
+
+  .nav-content ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .nav-content ul li {
+    width: auto;
+  }
+
+  .nav-content ul li a {
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: var(--color-text);
+  }
+
+  /* Efeito Hover Original mantido */
+  .nav-content li a::after {
+    content: "";
+    width: 0%;
+    height: 3px;
+    border-radius: 2rem;
+    background-color: rgb(192, 192, 192);
+    position: relative;
+    bottom: -1rem;
+    left: -1rem;
+    display: block;
+    transition: width 200ms ease-in-out;
+  }
+
+  .nav-content li a:hover::after {
+    padding-inline: 1rem;
+    width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 1079px) {
+  #navbar {
+    justify-content: flex-end;
+  }
+
+  .hamburger {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    background-color: transparent;
+    z-index: 1000;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    position: absolute;
+    right: 0;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.5s;
+  }
+
+  .hamburger span.um {
+    width: 35px;
+    top: 10px;
+  }
+
+  .hamburger span.dois {
+    width: 25px;
+    bottom: 12px;
+  }
+
+  .hamburger.active span.um {
+    transform: rotate(45deg);
+    top: 18px;
+    width: 35px;
+  }
+
+  .hamburger.active span.dois {
+    transform: rotate(-45deg);
+    bottom: 19px;
+    width: 35px;
+  }
+
+  .nav-content {
+    position: fixed;
+    left: 100%;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s ease-in-out;
+    z-index: 998;
+  }
+
+  .nav-content.active {
+    left: 0;
+  }
+
+  .nav-content ul {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .nav-content ul li a {
+    text-decoration: none;
+    font-size: 3.5rem;
+    color: var(--color-text);
+  }
+
+  /* Efeito Hover Original mantido */
+  .nav-content li a::after {
+    content: "";
+    width: 0%;
+    height: 3px;
+    border-radius: 2rem;
+    background-color: rgb(192, 192, 192);
+    position: relative;
+    bottom: -1rem;
+    left: -1rem;
+    display: block;
+    transition: width 200ms ease-in-out;
+  }
+
+  .nav-content li a:hover::after {
+    padding-inline: 1rem;
+    width: 100%;
+  }
+}
