@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+  <!-- Charset e viewport devem vir sempre primeiro -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO básico -->
+  <title>Lottin Films | Portfólio</title>
+  <meta name="description" content="Filmmaker em Anápolis, Goiânia, Brasília e Região. Especialista em vídeos automotivos, comerciais, casamentos e conteúdo para redes sociais. Portfólio completo.">
+  <meta name="keywords" content="filmmaker, filmmaker anapolis, filmmaker em anapolis, filmmaker goias, ... [cole a lista acima aqui]">
+  <meta name="author" content="Carlos Eduardo – Lottin Films" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://lottinfilms.com.br/" />
+
+  <!-- Verificação do Google Search Console -->
+  <meta name="google-site-verification" content="Rvr9ywhTxusq5m0WFMveeK9eRorR3HfAqGN5JjaawRI" />
+
+  <!-- Open Graph (Facebook, WhatsApp) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lottinfilms.com.br/" />
+  <meta property="og:title" content="Lottin Films – Portfólio" />
+  <meta property="og:description" content="Portfólio de vídeos profissionais e criativos." />
+  <meta property="og:image" content="https://lottinfilms.com.br/imagens/fundo.webp" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://lottinfilms.com.br/" />
+  <meta name="twitter:title" content="Lottin Films – Portfólio" />
+  <meta name="twitter:description" content="Portfólio de vídeos profissionais e criativos." />
+  <meta name="twitter:image" content="https://lottinfilms.com.br/imagens/fundo.webp" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="./assets/images/logolottin.webp" type="image/png" />
+  <link rel="shortcut icon" href="./assets/images/logolottin.webp" type="image/png" />
+
+
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100..900&family=Roboto+Mono:wght@100..700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.14/dist/lenis.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/navigation.css" />
+
+
+  <!-- Font Awesome -->
+</head>
+
+  <body>
+    <div id="particles-js"></div>
+
+    <nav id="navbar">
+      <div class="nav-content">
+        <ul>
+          <li><a onclick="closeMenu()" href="#home">Home</a></li>
+          <li><a onclick="closeMenu()" href="#projects">Projetos</a></li>
+          <li><a onclick="closeMenu()" href="#competenciasDesktop">Habilidades</a></li>
+          <li><a onclick="closeMenu()" href="#sobre">Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="hamburger">
+        <span class="um"></span>
+        <span class="dois"></span>
+      </div>
+    </nav>
+
+    <header id="home">
+      <div class="wrapper-home">
+        <div class="banner">
+          <video autoplay muted loop>
+            <source src="./assets/videos/bg video.mp4" type="video/mp4" />
+          </video>
+
+
+
+          <div class="content">
+            <div class="text">
+              <div data-aos="fade-down-right" class="paragraphy">
+                <p>Olá! Eu sou o Carlos do</p>
+              </div>
+               <div class="logo-container"
+       data-aos="fade-up"
+       data-aos-anchor-placement="bottom-bottom">
+    <img src="./assets/images/sticker.webp" alt="Lottin Films" class="logo-sticker floating">
+  </div>
+</div>
+
+            <a class="arrow" href="#projects">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="42"
+                height="42"
+                fill="#fff"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M213.66,122.34a8,8,0,0,1,0,11.32l-80,80a8,8,0,0,1-11.32,0l-80-80a8,8,0,0,1,11.32-11.32L128,196.69l74.34-74.35A8,8,0,0,1,213.66,122.34Zm-91.32,11.32a8,8,0,0,0,11.32,0l80-80a8,8,0,0,0-11.32-11.32L128,116.69,53.66,42.34A8,8,0,0,0,42.34,53.66Z"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+<section id="projects">
+  <div class="wrapper">
+    <header>
+      <h2 data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+        Boas-Vindas ao meu portfólio
+      </h2>
+      <p data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+        Aqui você encontra meus melhores projetos!
+      </p>
+     <!--  <h3 data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+        Selecione a categoria desejada!
+      </h3> -->
+    </header>
+
+    <div class="cards" id="publicCategoriesGrid">
+      <!-- Categorias renderizadas dinamicamente via JS -->
+    </div>
+    <img class="textoPortfolio" src="./assets/images/PORTFOLIO TEXT.webp" alt="" />
+    <img class="looper um" src="./assets/images/LooperGroup.webp" alt="" />
+    <img class="looper dois" src="./assets/images/LooperGroup.webp" alt="" />
+    <img class="looper tres" src="./assets/images/LooperGroup.webp" alt="" />
+  </div>
+</section>
+
+    <section id="competencias">
+      <div class="wrapper">
+        <header>
+          <h2 data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+            Habilidades
+          </h2>
+        </header>
+        <img class="textoHabilidades" src="./assets/images/HABILIDADES.webp" alt="" />
+
+        <div data-aos="fade-up" class="cards">
+            <div class="card">
+              <img src="./assets/images/logo-ae.webp" alt="After Effects Logo" style="width: 64px; height: 64px;">
+              <span>AfterEffects</span>
+              <p>
+                É uma das ferramentas que mais domino. Uso para criar intros,
+                efeitos especiais, animações e composições visuais que deixam
+                meus vídeos mais profissionais. Com ele, adiciono movimentos
+                e efeitos que transformam ideias simples em conteúdos marcantes.
+              </p>
+            </div>
+
+            <div class="card">
+              <img src="./assets/images/DaVinci.webp" alt="DaVinci" style="width: 64px; height: 64px;">
+              <span>DaVinci Resolve</span>
+              <p>
+                Nele faço a correção de cor antes mesmo de começar a
+                edição. Assim, consigo um visual cinematográfico logo no
+                início. O controle de contraste, exposição e cor ajuda a
+                dar vida e qualidade às cenas. Essa etapa é uma das mais
+                importantes para garantir consistência visual ao longo do vídeo
+              </p>
+            </div>
+
+            <div class="card">
+               <img src="./assets/images/premiere.webp" alt="Premiere Pro Logo" style="width: 64px; height: 64px;">
+              <span>Premiere Pro</span>
+              <p>
+                É meu software principal de edição. Nele organizo as cenas com ritmo
+                e lógica, deixando os vídeos dinâmicos e fáceis de entender. Consigo usar
+                ele junto com o After Effects, colocando efeitos e animações direto na edição,
+                sem precisar exportar tudo de novo.
+              </p>
+            </div>
+
+            <div class="card">
+              <img src="./assets/images/Photoshop.webp" alt="Photoshop Logo" style="width: 64px; height: 64px;">
+              <span>Photoshop</span>
+              <p>
+                Uso ele para criar e ajustar ícones, PNGs e
+                imagens com precisão, garantindo artes visuais profissionais
+                alinhadas ao estilo do cliente. Além disso, o Photoshop integra-se ao
+                After Effects, permitindo modificar frames de vídeos e
+                facilitando o fluxo de trabalho.
+              </p>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="competenciasDesktop">
+      <div class="wrapper">
+        <div class="content">
+          <header>
+            <h2 data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+              Habilidades
+            </h2>
+          </header>
+
+          <div class="cards">
+            <div
+              data-aos="fade-right"
+              data-aos-offset="450"
+              data-aos-easing="ease-in-sine"
+              class="card one"
+            >
+              <img src="./assets/images/logo-ae.webp" alt="After Effects Logo" style="width: 64px; height: 64px;">
+              <span>After Effects</span>
+              <p>
+                É uma das ferramentas que mais domino. Uso para criar intros,
+                efeitos especiais, animações e composições visuais que deixam
+                meus vídeos mais profissionais. Com ele, adiciono movimentos
+                e efeitos que transformam ideias simples em conteúdos marcantes.
+              </p>
+            </div>
+
+            <div
+              data-aos="fade-right"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine"
+              class="card two"
+            >
+              <img src="./assets/images/DaVinci.webp" alt="DaVinci" style="width: 64px; height: 64px;">
+              <span>DaVinci Resolve</span>
+              <p>
+                Nele faço a correção de cor antes mesmo de começar a
+                edição. Assim, consigo um visual cinematográfico logo no
+                início. O controle de contraste, exposição e cor ajuda a
+                dar vida e qualidade às cenas. Essa etapa é uma das mais
+                importantes para garantir consistência visual ao longo do vídeo
+              </p>
+            </div>
+
+            <div
+              data-aos="fade-right"
+              data-aos-offset="150"
+              data-aos-easing="ease-in-sine"
+              class="card three"
+            >
+              <img src="./assets/images/premiere.webp" alt="Premiere Pro Logo" style="width: 64px; height: 64px;">
+              <span>Premiere Pro</span>
+              <p>
+                É meu software principal de edição. Nele organizo as cenas com ritmo
+                e lógica, deixando os vídeos dinâmicos e fáceis de entender. Consigo usar
+                ele junto com o After Effects, colocando efeitos e animações direto na edição,
+                sem precisar exportar tudo de novo.
+              </p>
+            </div>
+
+            <div
+              data-aos="fade-right"
+              data-aos-offset="50"
+              data-aos-easing="ease-in-sine"
+              class="card for"
+            >
+              <img src="./assets/images/Photoshop.webp" alt="Photoshop Logo" style="width: 64px; height: 64px;">
+
+              <span>Photoshop</span>
+              <p>
+                Uso ele para criar e ajustar ícones, PNGs e
+                imagens com precisão, garantindo artes visuais profissionais
+                alinhadas ao estilo do cliente. Além disso, o Photoshop integra-se ao
+                After Effects, permitindo modificar frames de vídeos e
+                facilitando o fluxo de trabalho.
+              </p>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+      <img class="textoHabilidades" src="./assets/images/HABILIDADES.webp" alt="" />
+    </section>
+    <section id="sobre">
+      <div class="wrapper">
+        <div data-aos="fade-up-right" class="image">
+          <img id="pubProfileImage" src="./assets/images/ImagemMinha2.webp" alt="Foto de Perfil" />
+        </div>
+        <div class="content">
+          <header>
+            <h2 data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" id="pubName">
+              Carlos Eduardo
+            </h2>
+          </header>
+
+          <div class="text">
+            <p data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+              <span id="pubProfession">Filmmaker e Editor</span>
+            </p>
+
+            <ul id="pubDescriptionList">
+              <!-- Gerado via JS -->
+            </ul>
+            
+            <footer>
+              <div class="social-links" data-aos="fade-up">
+              <a id="pubWhatsappBtn" href="#" target="_blank" rel="noopener noreferrer" class="floating">
+                <img src="./assets/images/whatsapp.webp" alt="WhatsApp" width="80" height="80" />
+              </a>
+              <a id="pubInstagramBtn" href="#" target="_blank" rel="noopener noreferrer" class="floating">
+                <img src="./assets/images/insta.webp" alt="Instagram" width="80" height="80" />
+              </a>
+            </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <a id="buttonHome" class="show" target="_blank" href="">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m4.5 15.75 7.5-7.5 7.5 7.5"
+        />
+      </svg>
+    </a>
+
+
+    <script src="./assets/js/particles.min.js"></script>
+    <script>
+      particlesJS({
+        particles: {
+          number: {
+            value: 100,
+            density: {
+              enable: true,
+              value_area: 800,
+            },
+          },
+          color: {
+            value: "#e200ff",
+          },
+          shape: {
+            type: "circle",
+            stroke: {
+              width: 0,
+              color: "#FFFFFF",
+            },
+            polygon: {
+              nb_sides: 2,
+            },
+            image: {
+              src: "img/github.svg",
+              width: 100,
+              height: 100,
+            },
+          },
+          opacity: {
+            value: 0.7,
+            random: true,
+            anim: {
+              enable: false,
+              speed: 1,
+              opacity_min: 0.1,
+              sync: false,
+            },
+          },
+          size: {
+            value: 4,
+            random: true,
+            anim: {
+              enable: true,
+              speed: 0,
+              size_min: 0,
+              sync: false,
+            },
+          },
+          line_linked: {
+            enable: true,
+            distance: 200,
+            color: "#a700bd",
+            opacity: 0.3,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 1.5735393620871414,
+            direction: "none",
+            random: false,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+            attract: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 1200,
+            },
+          },
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: {
+              enable: true,
+              mode: "repulse",
+            },
+            onclick: {
+              enable: true,
+              mode: "push",
+            },
+            resize: true,
+          },
+          modes: {
+            grab: {
+              distance: 400,
+              line_linked: {
+                opacity: 1,
+              },
+            },
+            bubble: {
+              distance: 100,
+              size: 40,
+              duration: 2,
+              opacity: 8,
+              speed: 3,
+            },
+            repulse: {
+              distance: 100,
+              duration: 0.4,
+            },
+            push: {
+              particles_nb: 4,
+            },
+            remove: {
+              particles_nb: 2,
+            },
+          },
+        },
+        retina_detect: true,
+      });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1200,
+      });
+    </script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+
+    <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+    <script>
+      // Initialize Lenis with options
+      const lenis = new Lenis({
+        smooth: true, // Ativa o scroll suave
+        duration: 0.7, // Define a duração do scroll (maior valor deixa mais lento)
+        easing: (t) => 1 - Math.pow(1 - t, 4), // Função de easing para suavidade
+      });
+
+      // Controle de scroll da Navbar via Lenis
+      const navbar = document.getElementById("navbar");
+      lenis.on("scroll", (e) => {
+        if (!navbar) return;
+        
+        // Fundo desfocado após rolar 50px
+        if (e.scroll > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+
+        // Esconder ao rolar para baixo, mostrar ao rolar para cima
+        if (e.direction === 1 && e.scroll > 150) {
+          navbar.classList.add("hidden"); // descendo
+        } else if (e.direction === -1) {
+          navbar.classList.remove("hidden"); // subindo
+        }
+      });
+
+      // Use requestAnimationFrame to continuously update the scroll
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    </script>
+  </body>
+</html>
+
