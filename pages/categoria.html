@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lottin Films | Categoria</title>
+  <link rel="stylesheet" href="../assets/css/projects.css" />
+  <link rel="icon" href="../assets/images/logolottin.webp" type="image/png" />
+  <link rel="shortcut icon" href="../assets/images/logolottin.webp" type="image/png" />
+  <style>
+    /* Esconder banner até carregar dados para evitar flashes de template */
+    .banner-content h2:empty { height: 1.2em; background: rgba(255,255,255,0.1); }
+  </style>
+</head>
+<body>
+  <button onclick="history.back()" class="voltar-seta">‹</button>
+
+  <!-- Banner -->
+  <header class="banner">
+    <!-- Desktop -->
+    <img id="bgDesktop" src="" alt="Fundo Desktop" class="banner-bg desktop-bg" style="display:none;" />
+    <!-- Mobile -->
+    <img id="bgMobile" src="" alt="Fundo Mobile" class="banner-bg mobile-bg" style="display:none;" />
+    <div class="overlay"></div>
+    <a href="../index.html" class="logo-banner-link">
+      <img src="../assets/images/logolottin01.webp" alt="Lottin Films" class="logo-banner" />
+    </a>
+    <div class="banner-content">
+      <h2 id="catName">Carregando...</h2>
+      <p id="catDesc"></p>
+    </div>
+  </header>
+
+  <!-- Cards -->
+  <section class="projects-section">
+    <div class="cards2" id="projectsGrid">
+      <p style="text-align:center; color:white; width:100%; grid-column: 1/-1;">Carregando projetos...</p>
+    </div>
+  </section>
+
+  <div class="butao-final-wrapper">
+    <button onclick="history.back()" class="butao-final">← Voltar</button>
+  </div>
+
+  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script>
+    // Scroll suave com Lenis
+    const lenis = new Lenis({
+      smooth: true,
+      duration: 0.7,
+      easing: (t) => 1 - Math.pow(1 - t, 4),
+    });
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  </script>
+
+  <script>
+    // Lógica Dinâmica da Categoria
+    document.addEventListener("DOMContentLoaded", async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const slug = urlParams.get('slug');
+
+      if (!slug) {
+        window.location.href = '../index.html';
+        return;
+      }
+
+      try {
+        // 1. Carregar informações da categoria
+        const catRes = await fetch(`/api/categories?slug=${slug}`);
+        if (!catRes.ok) throw new Error('Categoria não encontrada');
+        const cat = await catRes.json();
+
+        document.title = `Lottin Films | ${cat.name}`;
+        document.getElementById('catName').textContent = cat.name;
+        document.getElementById('catDesc').textContent = cat.description || '';
+        
+        if (cat.bg_desktop_url) {
+          const bgD = document.getElementById('bgDesktop');
+          bgD.src = cat.bg_desktop_url.startsWith('http') ? cat.bg_desktop_url : `../${cat.bg_desktop_url.replace('./','')}`;
+          bgD.style.display = 'block';
+        }
+        if (cat.bg_mobile_url) {
+          const bgM = document.getElementById('bgMobile');
+          bgM.src = cat.bg_mobile_url.startsWith('http') ? cat.bg_mobile_url : `../${cat.bg_mobile_url.replace('./','')}`;
+          bgM.style.display = 'block';
+        }
+
+        // 2. Carregar projetos da categoria
+        const projRes = await fetch(`/api/projects?category=${slug}`);
+        const projects = await projRes.json();
+        const grid = document.getElementById('projectsGrid');
+        
+        if (projects.length > 0) {
+          grid.innerHTML = '';
+          projects.forEach((proj, index) => {
+            const delay = index % 2 === 0 ? 'fade-up-left' : 'fade-up-right';
+            
+            // Ajustar caminhos
+            const videoUrl = proj.video_url && !proj.video_url.startsWith('http') ? `../${proj.video_url.replace('./','')}` : proj.video_url;
+            const thumbUrl = proj.thumbnail_url && !proj.thumbnail_url.startsWith('http') ? `../${proj.thumbnail_url.replace('./','')}` : proj.thumbnail_url;
+
+            let detailsHtml = '';
+            if(proj.location) detailsHtml += `<strong>Local:</strong> ${proj.location}<br>`;
+            if(proj.objective) detailsHtml += `<strong>Objetivo:</strong> ${proj.objective}<br>`;
+            if(proj.client) detailsHtml += `<strong>Cliente:</strong> ${proj.client}<br>`;
+            if(proj.equipment) detailsHtml += `<strong>Equipamentos:</strong> ${proj.equipment}<br>`;
+            if(proj.date) detailsHtml += `<strong>Data:</strong> ${proj.date}<br>`;
+            if(proj.description) detailsHtml += `<strong>Destaques:</strong> ${proj.description}<br>`;
+
+            let mediaHtml = '';
+            if (proj.video_type === 'youtube' && proj.youtube_video_id) {
+              mediaHtml = `
+                  <iframe class="floating"
+                    src="https://www.youtube.com/embed/${proj.youtube_video_id}?autoplay=1&mute=1&loop=1&playlist=${proj.youtube_video_id}&controls=0" 
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                  </iframe>
+              `;
+            } else {
+              mediaHtml = `
+                  <video autoplay muted class="floating lazy-video" loop poster="${thumbUrl}">
+                   <source src="${videoUrl}" type="video/mp4" />
+                  </video>
+              `;
+            }
+
+            grid.innerHTML += `
+              <div class="card2">
+                <div class="image">${mediaHtml}</div>
+                <div class="text">
+                  <h3>${proj.title}</h3>
+                  <p>${detailsHtml}</p>
+                  <div class="neon-divider"></div>
+                </div>
+              </div>
+            `;
+          });
+        } else {
+          grid.innerHTML = '<p style="text-align:center; color:white; width:100%; grid-column: 1/-1;">Nenhum projeto encontrado.</p>';
+        }
+
+      } catch (error) {
+        console.error(error);
+        document.getElementById('catName').textContent = 'Erro ao carregar';
+      }
+    });
+  </script>
+</body>
+</html>

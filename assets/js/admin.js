@@ -63,8 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
         filtered.forEach(proj => {
             const card = document.createElement('div');
             card.className = 'admin-card';
+            const thumbUrl = proj.thumbnail_url.startsWith('http') ? proj.thumbnail_url : `../${proj.thumbnail_url}`;
             card.innerHTML = `
-                <img src="../${proj.thumbnail_url}" alt="${proj.title}" class="admin-card-thumb">
+                <img src="${thumbUrl}" alt="${proj.title}" class="admin-card-thumb">
                 <div class="admin-card-content">
                     <span class="cat-badge">${proj.category}</span>
                     <h4>${proj.title}</h4>
@@ -150,6 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
                 
+                const displayThumb = proj.thumbnail_url.startsWith('http') ? proj.thumbnail_url : `../${proj.thumbnail_url}`;
                 document.getElementById('thumbPreviewText').textContent = `Atual: ${proj.thumbnail_url}`;
                 if(proj.video_url) {
                     document.getElementById('videoPreviewText').textContent = `Atual: ${proj.video_url}`;
@@ -387,7 +389,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('contactInstagram').value = data.instagram;
                 document.getElementById('contactDescription').value = data.description;
                 if (data.profile_image_url) {
-                    document.getElementById('contactImagePreview').src = '../' + data.profile_image_url;
+                    const profileUrl = data.profile_image_url.startsWith('http') ? data.profile_image_url : '../' + data.profile_image_url;
+                    document.getElementById('contactImagePreview').src = profileUrl;
                 }
             }
         } catch (error) {
@@ -410,7 +413,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 contactFeedback.classList.add('feedback-success');
                 contactFeedback.textContent = data.message;
                 if (data.profile_image_url) {
-                    document.getElementById('contactImagePreview').src = '../' + data.profile_image_url;
+                    const profileUrl = data.profile_image_url.startsWith('http') ? data.profile_image_url : '../' + data.profile_image_url;
+                    document.getElementById('contactImagePreview').src = profileUrl;
                 }
             } else {
                 contactFeedback.classList.add('feedback-error');
@@ -475,8 +479,9 @@ document.addEventListener('DOMContentLoaded', () => {
         filtered.forEach(cat => {
             const card = document.createElement('div');
             card.className = 'admin-card';
+            const thumbUrl = cat.thumbnail_url.startsWith('http') ? cat.thumbnail_url : `../${cat.thumbnail_url}`;
             card.innerHTML = `
-                <img src="../${cat.thumbnail_url}" alt="${cat.name}" class="admin-card-thumb">
+                <img src="${thumbUrl}" alt="${cat.name}" class="admin-card-thumb">
                 <div class="admin-card-content">
                     <span class="cat-badge">${cat.projectCount || 0} Projetos</span>
                     <h4>${cat.name}</h4>

@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/pages/:slug.html",
+      "destination": "/pages/categoria.html?slug=:slug"
+    },
+    {
+      "source": "/api/login",
+      "destination": "/api/auth/login.js"
+    },
+    {
+      "source": "/api/logout",
+      "destination": "/api/auth/logout.js"
+    },
+    {
+      "source": "/api/check-auth",
+      "destination": "/api/auth/check-auth.js"
+    },
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
+  ]
+}

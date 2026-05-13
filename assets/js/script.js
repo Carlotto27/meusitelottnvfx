@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const thumbUrl = cat.thumbnail_url.startsWith('./') ? cat.thumbnail_url : `./${cat.thumbnail_url}`;
         
         const catHtml = `
-          <a href="./pages/${cat.slug}.html" class="categoria-card-wrapper" data-aos="fade-up">
+          <a href="./pages/categoria.html?slug=${cat.slug}" class="categoria-card-wrapper" data-aos="fade-up">
             <div class="categoria-card floating">
               <div class="bg-thumb" style="background-image: url('${thumbUrl}');"></div>
               <div class="categoria-info">
@@ -131,91 +131,4 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// Renderização Dinâmica das Galerias (Páginas de Categoria)
-document.addEventListener("DOMContentLoaded", async () => {
-  const cardsContainer = document.querySelector('.projects-section .cards2');
-  if (!cardsContainer) return;
-
-  // Extrair categoria da URL
-  let path = window.location.pathname;
-  let categoryName = path.substring(path.lastIndexOf('/') + 1).replace('.html', '');
-
-  if (categoryName && categoryName !== 'index') {
-    try {
-      const res = await fetch(`/api/projects?category=${categoryName}`);
-      const projects = await res.json();
-
-      if (projects.length > 0) {
-        cardsContainer.innerHTML = ''; // Limpa os hardcoded
-
-        projects.forEach((proj, index) => {
-            const delay = index % 2 === 0 ? 'fade-up-left' : 'fade-up-right';
-            
-            // Corrige caminhos baseando-se que a página está em /pages/
-            const videoUrl = proj.video_url.startsWith('./') ? proj.video_url.replace('./', '../') : proj.video_url;
-            const thumbUrl = proj.thumbnail_url.startsWith('./') ? proj.thumbnail_url.replace('./', '../') : proj.thumbnail_url;
-
-            let detailsHtml = '';
-            if(proj.location) detailsHtml += `<strong>Local:</strong> ${proj.location}<br>`;
-            if(proj.objective) detailsHtml += `<strong>Objetivo:</strong> ${proj.objective}<br>`;
-            if(proj.client) detailsHtml += `<strong>Cliente:</strong> ${proj.client}<br>`;
-            if(proj.equipment) detailsHtml += `<strong>Equipamentos:</strong> ${proj.equipment}<br>`;
-            if(proj.date) detailsHtml += `<strong>Data:</strong> ${proj.date}<br>`;
-            if(proj.description) detailsHtml += `<strong>Destaques:</strong> ${proj.description}<br>`;
-
-            let mediaHtml = '';
-            if (proj.video_type === 'youtube' && proj.youtube_video_id) {
-              const ytId = proj.youtube_video_id;
-              const isShort = proj.youtube_url && proj.youtube_url.includes('/shorts/');
-              const shortsClass = isShort ? ' shorts-video' : '';
-              mediaHtml = `
-                  <iframe class="floating lazy-video${shortsClass}"
-                    src="https://www.youtube.com/embed/${ytId}?autoplay=1&mute=1&loop=1&playlist=${ytId}&controls=0" 
-                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-                  </iframe>
-              `;
-            } else {
-              mediaHtml = `
-                  <video autoplay muted class="floating lazy-video" preload="none" loop poster="${thumbUrl}">
-                   <source data-src="${videoUrl}" type="video/mp4" src="${videoUrl}" />
-                    Seu navegador não suporta vídeos HTML5.
-                  </video>
-              `;
-            }
-
-            const cardHtml = `
-              <div data-aos="${delay}" class="card2 aos-init aos-animate">
-                <div class="image">
-                  ${mediaHtml}
-                </div>
-                <div class="text">
-                  <h3>${proj.title}</h3>
-                  <p>${detailsHtml}</p>
-                  <div class="neon-divider"></div>
-                </div>
-              </div>
-            `;
-            cardsContainer.innerHTML += cardHtml;
-        });
-
-        // Re-iniciar controles de video (hover para mostrar controles)
-        const videos = document.querySelectorAll("video");
-        videos.forEach((video) => {
-            video.controls = false;
-            video.addEventListener("mouseenter", () => video.controls = true);
-            video.addEventListener("mouseleave", () => video.controls = false);
-        });
-        
-        // Disparar AOS refresh se necessário
-        if (typeof AOS !== 'undefined') {
-          setTimeout(() => AOS.refreshHard(), 100);
-        }
-
-      } else {
-        cardsContainer.innerHTML = '<p style="text-align:center; color:white; width:100%;">Nenhum projeto encontrado nesta categoria.</p>';
-      }
-    } catch (error) {
-      console.error("Erro ao carregar projetos da galeria", error);
-    }
-  }
-});
+// Lógica de galeria movida para pages/categoria.html dinamicamente.

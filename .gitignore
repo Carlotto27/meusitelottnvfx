@@ -1,3 +1,14 @@
 node_modules
 .env
 database.sqlite
+.DS_Store
+*.log
+.vercel
+/pages/*.html
+!/pages/index.html
+!/pages/template_categoria.html
+!/pages/categoria.html
+!/pages/briefing.html
+!/pages/color.html
+# Manter as páginas originais se o usuário quiser, mas ignorar as geradas se elas seguirem um padrão.
+# No entanto, como agora usamos categoria.html dinâmico, podemos ignorar as antigas.
